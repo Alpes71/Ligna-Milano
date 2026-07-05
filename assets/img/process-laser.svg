@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760" role="img" aria-label="Corte y grabado láser sobre madera">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#070503"/><stop offset="1" stop-color="#2b1208"/></linearGradient>
+    <linearGradient id="wood" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#b97447"/><stop offset="0.45" stop-color="#d79b68"/><stop offset="1" stop-color="#7d3f22"/></linearGradient>
+    <filter id="glow"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  </defs>
+  <rect width="1200" height="760" fill="url(#bg)"/>
+  <g opacity=".36">
+    <path d="M40 660 C240 520, 300 720, 520 570 S870 390, 1160 520" fill="none" stroke="#C66A33" stroke-width="2"/>
+    <path d="M20 690 C260 510, 320 730, 560 585 S900 410, 1180 545" fill="none" stroke="#F1B27B" stroke-width="1.4"/>
+  </g>
+  <rect x="90" y="470" width="1020" height="150" rx="22" fill="url(#wood)"/>
+  <g opacity=".35" stroke="#42200f" stroke-width="3" fill="none">
+    <path d="M130 515 C220 490, 310 545, 400 515 S580 490, 675 520 S870 560, 1060 505"/>
+    <path d="M130 560 C260 535, 360 590, 510 555 S750 530, 1080 575"/>
+  </g>
+  <g transform="translate(505 160)">
+    <rect x="-92" y="0" width="184" height="160" rx="22" fill="#16120f" stroke="#d7894f" stroke-width="3"/>
+    <rect x="-55" y="145" width="110" height="100" rx="18" fill="#24201d" stroke="#c66a33"/>
+    <circle cx="0" cy="72" r="34" fill="#050403" stroke="#f0a368" stroke-width="4"/>
+    <path d="M0 245 L0 380" stroke="#ff7a2a" stroke-width="7" filter="url(#glow)"/>
+    <path d="M0 245 L170 390" stroke="#ff9a58" stroke-width="2" opacity=".72"/>
+  </g>
+  <g transform="translate(430 445)" fill="none" stroke="#1d0e07" stroke-width="6">
+    <circle cx="0" cy="0" r="84"/><circle cx="0" cy="0" r="62"/><circle cx="0" cy="0" r="39"/><path d="M-86 0 L86 0M0-86L0 86M-60-60L60 60M60-60L-60 60"/>
+  </g>
+  <text x="88" y="95" fill="#F5EEE5" font-family="Georgia, serif" font-size="46" letter-spacing="3">Láser diodo y fibra</text>
+  <text x="90" y="145" fill="#D4874D" font-family="Montserrat, Arial" font-size="22" letter-spacing="5">CORTE · GRABADO · DETALLE</text>
+</svg>

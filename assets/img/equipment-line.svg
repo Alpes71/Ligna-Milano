@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760" role="img" aria-label="Equipos de producción premium">
+  <defs><linearGradient id="bg" x1="0" x2="1"><stop stop-color="#050403"/><stop offset="1" stop-color="#25100a"/></linearGradient><linearGradient id="c" x1="0" x2="1"><stop stop-color="#d4874d"/><stop offset="1" stop-color="#f2c8a1"/></linearGradient></defs>
+  <rect width="1200" height="760" fill="url(#bg)"/>
+  <g fill="none" stroke="url(#c)" stroke-width="5" opacity=".95">
+    <rect x="105" y="310" width="210" height="190" rx="28"/><circle cx="210" cy="405" r="52"/><path d="M155 555 H265"/>
+    <rect x="385" y="250" width="260" height="260" rx="35"/><path d="M430 510 V585M600 510V585M420 585H610"/><path d="M430 325H600M430 375H600M430 425H600"/>
+    <rect x="725" y="285" width="330" height="215" rx="28"/><path d="M775 500 V590M1005 500V590M760 590H1020"/><path d="M770 350 C830 300,940 300,1010 350"/>
+  </g>
+  <g opacity=".22" stroke="#d4874d" fill="none"><path d="M70 185 C270 75, 390 190, 535 130 S860 20, 1135 150"/><path d="M70 635 C280 510, 430 650, 590 575 S880 470, 1130 590"/></g>
+</svg>

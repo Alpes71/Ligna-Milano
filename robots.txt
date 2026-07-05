@@ -1,0 +1,11 @@
+User-agent: *
+Allow: /
+Disallow: /storage/
+Disallow: /config.local.php
+Disallow: /config.example.php
+Disallow: /smtp-mailer.php
+Disallow: /chat-ai.php
+Disallow: /send-contact.php
+Disallow: /.htaccess
+
+Sitemap: https://lignamilano.com/sitemap.xml

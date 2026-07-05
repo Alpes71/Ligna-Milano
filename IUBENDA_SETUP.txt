@@ -1,0 +1,23 @@
+LIGNA MILANO, IUBENDA INTEGRADO
+
+Se instaló el widget/header de iubenda en todas las páginas HTML principales:
+- index.html
+- aviso-legal.html
+- privacidad.html
+- cookies.html
+- condiciones.html
+
+Snippet instalado en el <head>:
+<script type="text/javascript" src="https://embeds.iubenda.com/widgets/a5ebfd67-1ace-4666-aaee-b75e7ff6a3bf.js"></script>
+
+En el footer se integraron los enlaces oficiales de iubenda:
+- Política de Privacidad: https://www.iubenda.com/privacy-policy/92799588
+- Política de Cookies: https://www.iubenda.com/privacy-policy/92799588/cookie-policy
+
+También se dejó el enlace "Gestionar cookies" con la clase iubenda-cs-preferences-link y fallback JS para abrir el panel de preferencias cuando iubenda esté cargado.
+
+IMPORTANTE
+1. Verifica en el dashboard de iubenda que el banner muestre Aceptar, Rechazar y Configurar con visibilidad equivalente.
+2. Verifica que el widget flotante de preferencias esté activo.
+3. El botón del chat se subió para no superponerse con el widget flotante de iubenda.
+4. No sobrescribas config.local.php si ya tiene las claves SMTP y OpenAI funcionando.

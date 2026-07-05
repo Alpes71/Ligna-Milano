@@ -1,0 +1,10 @@
+# Ligna Milano security hardening
+Options -Indexes
+
+<FilesMatch "^(config\.local\.php|\.env)$">
+  Require all denied
+</FilesMatch>
+
+<FilesMatch "\.(log|ini|bak|sql)$">
+  Require all denied
+</FilesMatch>

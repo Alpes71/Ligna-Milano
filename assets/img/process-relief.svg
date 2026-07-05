@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760" role="img" aria-label="Relieve y bajo relieve con láser de fibra">
+  <defs>
+    <radialGradient id="r" cx="62%" cy="45%" r="70%"><stop stop-color="#2e241b"/><stop offset="1" stop-color="#050403"/></radialGradient>
+    <linearGradient id="metal" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#e8d5bb"/><stop offset=".35" stop-color="#a06a3f"/><stop offset="1" stop-color="#f6c28a"/></linearGradient>
+    <filter id="shadow"><feDropShadow dx="0" dy="18" stdDeviation="22" flood-color="#000" flood-opacity=".6"/></filter>
+  </defs>
+  <rect width="1200" height="760" fill="url(#r)"/>
+  <g filter="url(#shadow)">
+    <rect x="170" y="260" width="300" height="300" rx="44" fill="url(#metal)"/>
+    <rect x="515" y="210" width="300" height="300" rx="44" fill="#12100e" stroke="#D4874D" stroke-width="5"/>
+    <rect x="765" y="330" width="260" height="260" rx="36" fill="url(#metal)"/>
+  </g>
+  <g fill="none" stroke="#2a1207" stroke-width="7" opacity=".85">
+    <path d="M235 405 C295 320, 375 330, 415 410 C360 485, 285 490, 235 405Z"/>
+    <path d="M575 360 C640 280, 745 300, 775 386 C700 445, 625 448, 575 360Z" stroke="#D4874D"/>
+    <path d="M820 460 C875 398, 955 405, 990 470 C945 535, 865 545, 820 460Z"/>
+  </g>
+  <g opacity=".23" stroke="#D4874D" stroke-width="2" fill="none">
+    <path d="M60 640 C250 480, 410 670, 590 500 S860 360, 1140 495"/>
+    <path d="M110 680 C300 510, 450 710, 640 520 S900 405, 1160 535"/>
+  </g>
+  <text x="88" y="95" fill="#F5EEE5" font-family="Georgia, serif" font-size="46" letter-spacing="3">Relieve y bajo relieve</text>
+  <text x="90" y="145" fill="#D4874D" font-family="Montserrat, Arial" font-size="22" letter-spacing="5">TEXTURA · PROFUNDIDAD · METAL</text>
+</svg>

@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760" role="img" aria-label="Impresión 3D de piezas decorativas">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#050403"/><stop offset="1" stop-color="#2e150b"/></linearGradient>
+    <filter id="glow"><feGaussianBlur stdDeviation="4"/><feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  </defs>
+  <rect width="1200" height="760" fill="url(#bg)"/>
+  <g transform="translate(450 150)">
+    <rect x="-115" y="0" width="230" height="115" rx="20" fill="#17120e" stroke="#d4874d" stroke-width="4"/>
+    <path d="M-45 115 L45 115 L20 195 L-20 195Z" fill="#241913" stroke="#f0a368"/>
+    <path d="M0 195 L0 280" stroke="#ff7a2a" stroke-width="6" filter="url(#glow)"/>
+  </g>
+  <g transform="translate(290 475)" fill="none" stroke-linecap="round">
+    <path d="M0 0 C110 -60, 250 -60, 360 0 S610 60, 720 0" stroke="#D4874D" stroke-width="12"/>
+    <path d="M20 -34 C130 -94, 270 -94, 380 -34 S630 26, 740 -34" stroke="#F6D5B8" stroke-width="8" opacity=".85"/>
+    <path d="M45 -66 C155 -126, 295 -126, 405 -66 S655 -6, 765 -66" stroke="#D4874D" stroke-width="6" opacity=".75"/>
+    <path d="M80 -96 C190 -156, 330 -156, 440 -96 S690 -36, 800 -96" stroke="#F6D5B8" stroke-width="4" opacity=".6"/>
+  </g>
+  <g opacity=".32" stroke="#d4874d" fill="none">
+    <rect x="170" y="230" width="860" height="350" rx="38" stroke-width="2"/>
+    <path d="M170 405 H1030M600 230V580"/>
+  </g>
+  <text x="88" y="95" fill="#F5EEE5" font-family="Georgia, serif" font-size="46" letter-spacing="3">Impresión 3D</text>
+  <text x="90" y="145" fill="#D4874D" font-family="Montserrat, Arial" font-size="22" letter-spacing="5">PROTOTIPO · FORMA · SERIE CORTA</text>
+</svg>
