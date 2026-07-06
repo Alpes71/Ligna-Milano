@@ -1,23 +1,32 @@
-LIGNA MILANO, IUBENDA INTEGRADO
+LIGNA MILANO — CONSENTIMIENTO DE COOKIES (SISTEMA PROPIO)
 
-Se instaló el widget/header de iubenda en todas las páginas HTML principales:
+iubenda se retiró del proyecto. El consentimiento de cookies ahora lo gestiona
+un banner propio, sin dependencias externas ni cuentas de terceros.
+
+Archivos implicados:
+- assets/css/cookie-banner.css  → estilos del banner
+- assets/js/cookie-banner.js    → lógica del banner (aceptar/rechazar/gestionar)
+
+Cómo funciona:
+- El banner aparece en la primera visita con opciones Aceptar y Rechazar.
+- La decisión se guarda en localStorage (clave: lm_cookie_consent), de modo que
+  no se vuelve a preguntar en visitas posteriores.
+- El enlace "Gestionar cookies" del pie (atributo data-cookie-preferences)
+  reabre el banner para permitir cambiar la elección.
+
+Páginas con el banner integrado (CSS + JS enlazados):
 - index.html
 - aviso-legal.html
 - privacidad.html
 - cookies.html
 - condiciones.html
 
-Snippet instalado en el <head>:
-<script type="text/javascript" src="https://embeds.iubenda.com/widgets/a5ebfd67-1ace-4666-aaee-b75e7ff6a3bf.js"></script>
-
-En el footer se integraron los enlaces oficiales de iubenda:
-- Política de Privacidad: https://www.iubenda.com/privacy-policy/92799588
-- Política de Cookies: https://www.iubenda.com/privacy-policy/92799588/cookie-policy
-
-También se dejó el enlace "Gestionar cookies" con la clase iubenda-cs-preferences-link y fallback JS para abrir el panel de preferencias cuando iubenda esté cargado.
+Si en el futuro se añaden scripts que instalen cookies no esenciales
+(analítica, píxeles, mapas, vídeos), deben cargarse SOLO tras el consentimiento.
+Para ello se pueden usar los eventos que emite el banner:
+- 'lm:cookies-accepted'
+- 'lm:cookies-rejected'
 
 IMPORTANTE
-1. Verifica en el dashboard de iubenda que el banner muestre Aceptar, Rechazar y Configurar con visibilidad equivalente.
-2. Verifica que el widget flotante de preferencias esté activo.
-3. El botón del chat se subió para no superponerse con el widget flotante de iubenda.
-4. No sobrescribas config.local.php si ya tiene las claves SMTP y OpenAI funcionando.
+- La clave de OpenAI y la contraseña SMTP viven en config.local.php (en el
+  servidor), nunca en el repositorio. No subir config.local.php a git.
