@@ -204,14 +204,17 @@
     if (value.includes('logo') || value.includes('archivo') || value.includes('vector')) {
       return 'Para producción lo ideal es SVG, PDF, AI o EPS. Si tienes PNG o JPG, lo revisamos y te decimos si sirve o si conviene vectorizar.';
     }
-    if (value.includes('3d') || value.includes('impresión') || value.includes('impresion')) {
-      return 'Para impresión 3D necesito medidas, uso de la pieza, color, acabado y si es prototipo o serie corta. Una referencia visual acelera mucho la validación.';
-    }
     if (value.includes('uv') || value.includes('dtf') || value.includes('botella')) {
       return 'Para UV DTF o impresión UV necesito superficie, material, medidas imprimibles y arte final. Es una gran opción para botellas, packaging, placas y objetos rígidos.';
     }
+    if (value.includes('relieve') || value.includes('textura') || value.includes('cuadro')) {
+      return 'El relieve y la textura 3D son de lo mejor de la impresión UV: dime material, medidas e imagen o arte final y valoramos el resultado táctil que se puede conseguir.';
+    }
+    if (value.includes('3d') || value.includes('impresión') || value.includes('impresion')) {
+      return 'La impresión UV a color con relieve es nuestro fuerte. La impresión 3D de volumen la incorporaremos próximamente; si te interesa, tomo nota para avisarte. Cuéntame material, medidas y uso de la pieza.';
+    }
     if (value.includes('láser') || value.includes('laser') || value.includes('grabado') || value.includes('corte')) {
-      return 'Para láser necesito material, grosor, zona de grabado o corte, cantidad y nivel de detalle. Con eso definimos diodo, fibra, MOPA o UV.';
+      return 'El corte y grabado láser lo incorporaremos próximamente. Mientras tanto, muchos acabados se resuelven con impresión UV a color con relieve. Si quieres, tomo nota de tu interés en el láser y te avisamos cuando esté disponible.';
     }
     return hasProject
       ? 'Entendido. Ya tengo contexto del proyecto. Para seguir sin repetirnos, dime cantidad, medidas aproximadas y si tienes imagen o archivo listo.'
