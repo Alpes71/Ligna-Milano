@@ -11,7 +11,7 @@
   padding: 4px 12px;
   border: 1px solid var(--line);
   border-radius: 999px;
-  background: rgba(212, 135, 77, .12);
+  background: rgba(184, 115, 51, .12);
   color: var(--copper);
   font-size: 10px;
   letter-spacing: 2px;
@@ -38,7 +38,7 @@
 }
 .collection-chip:hover {
   border-color: var(--copper);
-  background: rgba(212, 135, 77, .1);
+  background: rgba(184, 115, 51, .1);
   transform: translateY(-3px);
 }
 .collection-chip strong {
@@ -97,14 +97,14 @@
   height: 7px;
   border-radius: 50%;
   background: var(--copper);
-  box-shadow: 0 0 0 4px rgba(212, 135, 77, .12);
+  box-shadow: 0 0 0 4px rgba(184, 115, 51, .12);
 }
 .material-note {
   margin-top: 22px;
   padding: 20px 22px;
   border: 1px solid var(--line);
   border-radius: 20px;
-  background: rgba(212, 135, 77, .08);
+  background: rgba(184, 115, 51, .08);
   color: var(--cream-soft);
   font-size: 15px;
 }
