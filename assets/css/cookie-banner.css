@@ -1,6 +1,7 @@
 /* ============================================
    Ligna Milano — Banner de consentimiento de cookies
    Autónomo, sin dependencias externas
+   Paleta oficial · Manual de Marca v2.1
    ============================================ */
 
 .cookie-banner {
@@ -11,9 +12,9 @@
   z-index: 1200;
   width: min(920px, calc(100% - 32px));
   padding: 22px 24px;
-  border: 1px solid var(--line, rgba(212, 135, 77, .35));
+  border: 1px solid var(--line, rgba(184, 115, 51, .26));
   border-radius: 20px;
-  background: rgba(12, 9, 7, .96);
+  background: rgba(8, 8, 7, .96);
   backdrop-filter: blur(10px);
   box-shadow: 0 20px 60px rgba(0, 0, 0, .55);
   display: flex;
@@ -30,7 +31,7 @@
 }
 .cookie-banner__text {
   flex: 1 1 auto;
-  color: var(--cream-soft, #e8ddd2);
+  color: var(--cream-soft, #e7d8c4);
   font-size: 14px;
   line-height: 1.55;
 }
@@ -38,12 +39,12 @@
   display: block;
   font-family: "Cormorant Garamond", Georgia, serif;
   font-size: 20px;
-  color: var(--cream, #f5ede3);
+  color: var(--cream, #f7f0e6);
   margin-bottom: 4px;
   letter-spacing: .3px;
 }
 .cookie-banner__text a {
-  color: var(--copper, #d4874d);
+  color: var(--copper, #b87333);
   text-decoration: underline;
 }
 .cookie-banner__actions {
@@ -58,14 +59,14 @@
   letter-spacing: .5px;
   padding: 12px 22px;
   border-radius: 999px;
-  border: 1px solid var(--copper, #d4874d);
+  border: 1px solid var(--copper, #b87333);
   cursor: pointer;
   transition: .2s ease;
   white-space: nowrap;
 }
 .cookie-banner__btn--accept {
-  background: var(--copper, #d4874d);
-  color: #1a120b;
+  background: var(--copper, #b87333);
+  color: #120904;
 }
 .cookie-banner__btn--accept:hover {
   filter: brightness(1.08);
@@ -73,12 +74,12 @@
 }
 .cookie-banner__btn--reject {
   background: transparent;
-  color: var(--cream-soft, #e8ddd2);
-  border-color: var(--line, rgba(212, 135, 77, .35));
+  color: var(--cream-soft, #e7d8c4);
+  border-color: var(--line, rgba(184, 115, 51, .26));
 }
 .cookie-banner__btn--reject:hover {
-  border-color: var(--copper, #d4874d);
-  color: var(--cream, #f5ede3);
+  border-color: var(--copper, #b87333);
+  color: var(--cream, #f7f0e6);
 }
 
 @media (max-width: 720px) {
