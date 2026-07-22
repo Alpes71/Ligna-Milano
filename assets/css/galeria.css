@@ -96,6 +96,10 @@
   grid-template-columns: repeat(3, 1fr);
   gap: 30px 26px;
 }
+/* Si la última fila queda con una sola pieza, se centra */
+.pieces-grid > .piece-card:last-child:nth-child(3n + 1) {
+  grid-column: 2;
+}
 .piece-card h3 {
   font-family: "Cormorant Garamond", Georgia, serif;
   font-size: 26px;
@@ -218,12 +222,23 @@
   .piece-featured { grid-template-columns: 1fr; gap: 26px; }
   .piece-featured h3 { font-size: 34px; }
   .pieces-grid { grid-template-columns: repeat(2, 1fr); }
+  .pieces-grid > .piece-card:last-child:nth-child(3n + 1) { grid-column: auto; }
+  .pieces-grid > .piece-card:last-child:nth-child(2n + 1) {
+    grid-column: 1 / -1;
+    max-width: calc(50% - 13px);
+    margin-inline: auto;
+  }
   .lightbox .lb-prev { left: 6px; }
   .lightbox .lb-next { right: 6px; }
   .lightbox .lb-close { top: -50px; }
 }
 @media (max-width: 620px) {
   .pieces-grid { grid-template-columns: 1fr; gap: 34px; }
+  .pieces-grid > .piece-card:last-child:nth-child(2n + 1) {
+    grid-column: auto;
+    max-width: none;
+    margin-inline: 0;
+  }
   .piece-featured { margin-bottom: 40px; padding-bottom: 40px; }
   .piece-featured h3 { font-size: 30px; }
   .lightbox { padding: 16px; }

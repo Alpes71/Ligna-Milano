@@ -1,50 +1,37 @@
-LIGNA MILANO - Galeria de piezas + alineacion con el Manual de Marca v2.1
-=========================================================================
+LIGNA MILANO - Taza de ceramica + texto de galeria ajustado
+===========================================================
 
-YA ESTA EN EL REPOSITORIO (basta con git pull):
-  assets/css/galeria.css        estilos de la galeria, paleta oficial
-  assets/js/galeria.js          visor ampliado
-  assets/css/cookie-banner.css  corregido a la paleta oficial
+ESTE ZIP SUSTITUYE A LOS DOS ANTERIORES. Usa solo este.
 
-EN ESTE ZIP (copiar sobre la carpeta del repositorio):
-  index.html                    seccion Galeria + enlaces de menu y pie
-  aviso-legal.html              theme-color, Montserrat 900, Ligna Milano(TM)
-  privacidad.html               idem
-  cookies.html                  idem
-  condiciones.html              idem
-  assets/img/productos/*.webp   14 fotos nuevas
+CONTENIDO
+  index.html                              taza anadida + titular ajustado
+  assets/css/galeria.css                  centra la pieza suelta de la ultima fila
+  assets/img/productos/taza-1.webp        frontal, imagen de la tarjeta
+  assets/img/productos/taza-ambiente.webp en la cafeteria (2a del visor)
+  assets/img/productos/taza-2.webp        girada, con asa
+  assets/img/productos/taza-3.webp        cara opuesta
+
+CAMBIO DE TEXTO EN LA GALERIA
+  Antes: "Piezas salidas del taller, no renders."
+         "Todo lo que ves aqui esta impreso, tocado y fotografiado en
+          Ligna Milano."
+  Ahora: "Piezas reales, impresas una a una en el taller."
+         "Todo lo que ves aqui esta impreso y tocado en Ligna Milano."
+
+  Motivo: la foto de ambiente de la taza es un montaje, no una foto hecha
+  en un local real. El texto anterior prometia que todas las fotos eran
+  propias. El nuevo mantiene la fuerza y solo afirma lo que es cierto:
+  las piezas son reales y salen de tu taller.
+
+No he subido nada a GitHub, asi que no hace falta git pull.
 
 PASOS
 -----
-1. git pull
-2. Descomprime este ZIP sobre la carpeta del repositorio, respetando rutas
-3. git add -A
-4. git commit -m "Galeria de piezas y alineacion de marca"
-5. git push
-6. Sube a IONOS, EN ESTE ORDEN:
-     a) la carpeta assets/img/productos/  (primero, siempre)
-     b) index.html, aviso-legal.html, privacidad.html, cookies.html,
-        condiciones.html
-     c) assets/css/galeria.css, assets/css/cookie-banner.css,
-        assets/js/galeria.js
-
-Si subes index.html antes que las imagenes, la galeria mostrara huecos
-rotos hasta que terminen de subir las fotos.
-
-CORRECCIONES DE MARCA APLICADAS
--------------------------------
-Paleta oficial (Manual de Marca v2.1):
-  Carbon Black   #080807      Champagne    #e7d8c4
-  Graphite       #151311      Warm Ivory   #f7f0e6
-  Copper Gold    #b87333      Warm Taupe   #9b8874
-
-- Cobre antiguo #d4874d sustituido por Copper Gold #b87333 en los CSS
-  nuevos, incluidos los valores rgba(212,135,77) que si se pintaban.
-- Negros antiguos (#050403, rgba(10,7,5), rgba(5,4,3), rgba(12,9,7))
-  sustituidos por Carbon Black #080807.
-- theme-color de las 4 paginas legales: #050403 -> #080807.
-- Anadido el peso 900 de Montserrat a las 4 paginas legales.
-- "Ligna Milano es marca registrada" -> "Ligna Milano(TM)" en las 4
-  paginas legales, igual que en index.html.
-
-FOTOS: 14 en WebP, 900 px de ancho, 1 MB en total frente a 25 MB en PNG.
+1. Descomprime sobre la carpeta del repositorio, respetando rutas
+2. git add -A
+3. git commit -m "Taza de ceramica y ajuste del texto de galeria"
+4. git push
+5. Sube a IONOS EN ESTE ORDEN:
+     a) las 4 fotos taza-*.webp
+     b) assets/css/galeria.css
+     c) index.html
