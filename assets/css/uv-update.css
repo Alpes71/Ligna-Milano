@@ -19,8 +19,42 @@
   font-weight: 800;
   vertical-align: middle;
 }
-.equipment-card.is-soon { opacity: .72; }
-.equipment-card.is-soon:hover { opacity: 1; transition: .25s ease; }
+/* Cinta diagonal "Próximamente" en las tarjetas de equipo pendiente */
+.equipment-card.is-soon {
+  position: relative;
+  overflow: hidden;
+}
+.equipment-card.is-soon .badge-soon { display: none; }
+.equipment-card.is-soon .equipment-kicker { max-width: calc(100% - 96px); }
+.equipment-card.is-soon::after {
+  content: "Pr\00F3ximamente";
+  position: absolute;
+  top: 30px;
+  right: -62px;
+  width: 232px;
+  padding: 8px 0;
+  transform: rotate(45deg);
+  background: linear-gradient(135deg, var(--copper), var(--copper-dark));
+  color: #120904;
+  font-family: "Montserrat", system-ui, sans-serif;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 2.4px;
+  text-transform: uppercase;
+  text-align: center;
+  box-shadow: 0 8px 22px rgba(0, 0, 0, .5);
+  pointer-events: none;
+  z-index: 2;
+}
+@media (max-width: 560px) {
+  .equipment-card.is-soon::after {
+    top: 24px;
+    right: -68px;
+    width: 220px;
+    font-size: 9px;
+    letter-spacing: 2px;
+  }
+}
 
 /* Colecciones */
 .collections-grid {
