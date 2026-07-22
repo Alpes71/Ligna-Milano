@@ -1,15 +1,16 @@
 /* ============================================
    Ligna Milano — Galería de piezas reales
+   Paleta oficial · Manual de Marca v2.1
    ============================================ */
 
 .gallery-section {
   position: relative;
-  background: #070505;
-  border-top: 1px solid var(--line-soft, rgba(212, 135, 77, .18));
-  border-bottom: 1px solid var(--line-soft, rgba(212, 135, 77, .18));
+  background: linear-gradient(180deg, var(--black, #080807), var(--black-soft, #0d0b09));
+  border-top: 1px solid var(--line-soft, rgba(247, 240, 230, .12));
+  border-bottom: 1px solid var(--line-soft, rgba(247, 240, 230, .12));
 }
 
-/* --- Bloque de imagen (fondo claro = las fotos flotan) --- */
+/* --- Bloque de imagen (plinto fotográfico) --- */
 .piece-figure {
   position: relative;
   display: block;
@@ -17,7 +18,7 @@
   aspect-ratio: 4 / 5;
   border-radius: 18px;
   overflow: hidden;
-  background: #fbf9f6;
+  background: #ffffff;
   border: 1px solid rgba(255, 255, 255, .08);
   cursor: zoom-in;
   padding: 0;
@@ -37,8 +38,8 @@
   transform: translateX(-50%) translateY(8px);
   padding: 7px 16px;
   border-radius: 999px;
-  background: rgba(10, 7, 5, .82);
-  color: var(--cream, #f5ede3);
+  background: rgba(8, 8, 7, .86);
+  color: var(--cream, #f7f0e6);
   font-family: "Montserrat", system-ui, sans-serif;
   font-size: 10px;
   font-weight: 700;
@@ -51,7 +52,7 @@
 .piece-figure:hover,
 .piece-figure:focus-visible {
   transform: translateY(-4px);
-  border-color: var(--copper, #d4874d);
+  border-color: var(--copper, #b87333);
   box-shadow: 0 18px 44px rgba(0, 0, 0, .5);
 }
 .piece-figure:hover::after,
@@ -68,7 +69,7 @@
   align-items: center;
   margin-bottom: 56px;
   padding-bottom: 56px;
-  border-bottom: 1px solid var(--line-soft, rgba(212, 135, 77, .18));
+  border-bottom: 1px solid var(--line-soft, rgba(247, 240, 230, .12));
 }
 .piece-featured .featured-shots {
   display: grid;
@@ -79,11 +80,11 @@
   font-family: "Cormorant Garamond", Georgia, serif;
   font-size: 40px;
   line-height: 1.1;
-  color: var(--cream, #f5ede3);
+  color: var(--cream, #f7f0e6);
   margin: 10px 0 14px;
 }
 .piece-featured p {
-  color: var(--cream-soft, #e8ddd2);
+  color: var(--cream-soft, #e7d8c4);
   font-size: 16px;
   line-height: 1.65;
   margin-bottom: 18px;
@@ -99,11 +100,11 @@
   font-family: "Cormorant Garamond", Georgia, serif;
   font-size: 26px;
   line-height: 1.2;
-  color: var(--cream, #f5ede3);
+  color: var(--cream, #f7f0e6);
   margin: 18px 0 8px;
 }
 .piece-card p {
-  color: var(--cream-soft, #e8ddd2);
+  color: var(--cream-soft, #e7d8c4);
   font-size: 14.5px;
   line-height: 1.6;
   margin: 0 0 12px;
@@ -115,9 +116,9 @@
   align-items: center;
   gap: 8px;
   padding: 6px 13px;
-  border: 1px solid var(--line-soft, rgba(212, 135, 77, .18));
+  border: 1px solid var(--line-soft, rgba(247, 240, 230, .12));
   border-radius: 999px;
-  color: var(--muted, #b3a698);
+  color: var(--muted, #9b8874);
   font-size: 11px;
   letter-spacing: 1.1px;
   text-transform: uppercase;
@@ -128,21 +129,21 @@
   width: 5px;
   height: 5px;
   border-radius: 50%;
-  background: var(--copper, #d4874d);
+  background: var(--copper, #b87333);
   flex: 0 0 auto;
 }
 
 .gallery-note {
   margin-top: 44px;
   padding: 22px 24px;
-  border: 1px solid var(--line, rgba(212, 135, 77, .35));
+  border: 1px solid var(--line, rgba(184, 115, 51, .26));
   border-radius: 20px;
-  background: rgba(212, 135, 77, .08);
-  color: var(--cream-soft, #e8ddd2);
+  background: rgba(184, 115, 51, .08);
+  color: var(--cream-soft, #e7d8c4);
   font-size: 15px;
   line-height: 1.6;
 }
-.gallery-note strong { color: var(--cream, #f5ede3); }
+.gallery-note strong { color: var(--cream, #f7f0e6); }
 
 /* --- Visor ampliado --- */
 .lightbox {
@@ -153,7 +154,7 @@
   align-items: center;
   justify-content: center;
   padding: 28px;
-  background: rgba(5, 4, 3, .94);
+  background: rgba(8, 8, 7, .94);
   backdrop-filter: blur(6px);
 }
 .lightbox[hidden] { display: none; }
@@ -167,13 +168,13 @@
   max-width: 100%;
   max-height: 74vh;
   border-radius: 16px;
-  background: #fbf9f6;
+  background: #ffffff;
   display: block;
   margin: 0 auto;
 }
 .lightbox-caption {
   margin-top: 16px;
-  color: var(--cream-soft, #e8ddd2);
+  color: var(--cream-soft, #e7d8c4);
   font-size: 14px;
   letter-spacing: .4px;
 }
@@ -181,7 +182,7 @@
   display: block;
   font-family: "Cormorant Garamond", Georgia, serif;
   font-size: 24px;
-  color: var(--cream, #f5ede3);
+  color: var(--cream, #f7f0e6);
   margin-bottom: 4px;
 }
 .lightbox button {
@@ -191,17 +192,17 @@
   width: 46px;
   height: 46px;
   border-radius: 50%;
-  border: 1px solid var(--line, rgba(212, 135, 77, .35));
-  background: rgba(10, 7, 5, .8);
-  color: var(--cream, #f5ede3);
+  border: 1px solid var(--line, rgba(184, 115, 51, .26));
+  background: rgba(8, 8, 7, .86);
+  color: var(--cream, #f7f0e6);
   font-size: 20px;
   line-height: 1;
   cursor: pointer;
   transition: .2s ease;
 }
 .lightbox button:hover {
-  border-color: var(--copper, #d4874d);
-  background: rgba(212, 135, 77, .2);
+  border-color: var(--copper, #b87333);
+  background: rgba(184, 115, 51, .2);
 }
 .lightbox .lb-prev { left: -62px; }
 .lightbox .lb-next { right: -62px; }
