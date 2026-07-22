@@ -1,0 +1,15 @@
+{
+    "created_at": "2026-07-06T01:15:24+02:00",
+    "source": "contact-form",
+    "to": "info@lignamilano.com",
+    "name": "Aldo Pesquera",
+    "email": "alpes71@gmail.com",
+    "phone": "+34695845521",
+    "projectType": "Regalo personalizado",
+    "quantity": "1 unidad",
+    "message": "grabado laser",
+    "page": "lignamilano.com",
+    "privacyAccepted": true,
+    "sent": true,
+    "retry_without_reply_to": false
+}
