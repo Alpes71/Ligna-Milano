@@ -1,0 +1,236 @@
+/* ============================================
+   Ligna Milano — Galería de piezas reales
+   ============================================ */
+
+.gallery-section {
+  position: relative;
+  background: #070505;
+  border-top: 1px solid var(--line-soft, rgba(212, 135, 77, .18));
+  border-bottom: 1px solid var(--line-soft, rgba(212, 135, 77, .18));
+}
+
+/* --- Bloque de imagen (fondo claro = las fotos flotan) --- */
+.piece-figure {
+  position: relative;
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  border-radius: 18px;
+  overflow: hidden;
+  background: #fbf9f6;
+  border: 1px solid rgba(255, 255, 255, .08);
+  cursor: zoom-in;
+  padding: 0;
+  transition: transform .3s ease, box-shadow .3s ease, border-color .3s ease;
+}
+.piece-figure img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+.piece-figure::after {
+  content: "Ver detalle";
+  position: absolute;
+  left: 50%;
+  bottom: 14px;
+  transform: translateX(-50%) translateY(8px);
+  padding: 7px 16px;
+  border-radius: 999px;
+  background: rgba(10, 7, 5, .82);
+  color: var(--cream, #f5ede3);
+  font-family: "Montserrat", system-ui, sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.6px;
+  text-transform: uppercase;
+  opacity: 0;
+  transition: opacity .25s ease, transform .25s ease;
+  pointer-events: none;
+}
+.piece-figure:hover,
+.piece-figure:focus-visible {
+  transform: translateY(-4px);
+  border-color: var(--copper, #d4874d);
+  box-shadow: 0 18px 44px rgba(0, 0, 0, .5);
+}
+.piece-figure:hover::after,
+.piece-figure:focus-visible::after {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* --- Pieza destacada --- */
+.piece-featured {
+  display: grid;
+  grid-template-columns: 1.15fr .85fr;
+  gap: 34px;
+  align-items: center;
+  margin-bottom: 56px;
+  padding-bottom: 56px;
+  border-bottom: 1px solid var(--line-soft, rgba(212, 135, 77, .18));
+}
+.piece-featured .featured-shots {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+.piece-featured h3 {
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 40px;
+  line-height: 1.1;
+  color: var(--cream, #f5ede3);
+  margin: 10px 0 14px;
+}
+.piece-featured p {
+  color: var(--cream-soft, #e8ddd2);
+  font-size: 16px;
+  line-height: 1.65;
+  margin-bottom: 18px;
+}
+
+/* --- Rejilla de piezas --- */
+.pieces-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px 26px;
+}
+.piece-card h3 {
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 26px;
+  line-height: 1.2;
+  color: var(--cream, #f5ede3);
+  margin: 18px 0 8px;
+}
+.piece-card p {
+  color: var(--cream-soft, #e8ddd2);
+  font-size: 14.5px;
+  line-height: 1.6;
+  margin: 0 0 12px;
+}
+
+/* --- Ficha de medidas --- */
+.piece-spec {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 13px;
+  border: 1px solid var(--line-soft, rgba(212, 135, 77, .18));
+  border-radius: 999px;
+  color: var(--muted, #b3a698);
+  font-size: 11px;
+  letter-spacing: 1.1px;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+.piece-spec::before {
+  content: "";
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--copper, #d4874d);
+  flex: 0 0 auto;
+}
+
+.gallery-note {
+  margin-top: 44px;
+  padding: 22px 24px;
+  border: 1px solid var(--line, rgba(212, 135, 77, .35));
+  border-radius: 20px;
+  background: rgba(212, 135, 77, .08);
+  color: var(--cream-soft, #e8ddd2);
+  font-size: 15px;
+  line-height: 1.6;
+}
+.gallery-note strong { color: var(--cream, #f5ede3); }
+
+/* --- Visor ampliado --- */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 1400;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 28px;
+  background: rgba(5, 4, 3, .94);
+  backdrop-filter: blur(6px);
+}
+.lightbox[hidden] { display: none; }
+.lightbox-stage {
+  position: relative;
+  max-width: 780px;
+  width: 100%;
+  text-align: center;
+}
+.lightbox-stage img {
+  max-width: 100%;
+  max-height: 74vh;
+  border-radius: 16px;
+  background: #fbf9f6;
+  display: block;
+  margin: 0 auto;
+}
+.lightbox-caption {
+  margin-top: 16px;
+  color: var(--cream-soft, #e8ddd2);
+  font-size: 14px;
+  letter-spacing: .4px;
+}
+.lightbox-caption strong {
+  display: block;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 24px;
+  color: var(--cream, #f5ede3);
+  margin-bottom: 4px;
+}
+.lightbox button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  border: 1px solid var(--line, rgba(212, 135, 77, .35));
+  background: rgba(10, 7, 5, .8);
+  color: var(--cream, #f5ede3);
+  font-size: 20px;
+  line-height: 1;
+  cursor: pointer;
+  transition: .2s ease;
+}
+.lightbox button:hover {
+  border-color: var(--copper, #d4874d);
+  background: rgba(212, 135, 77, .2);
+}
+.lightbox .lb-prev { left: -62px; }
+.lightbox .lb-next { right: -62px; }
+.lightbox .lb-close {
+  top: -54px;
+  right: 0;
+  transform: none;
+}
+.lightbox button[hidden] { display: none; }
+
+/* --- Responsive --- */
+@media (max-width: 1080px) {
+  .piece-featured { grid-template-columns: 1fr; gap: 26px; }
+  .piece-featured h3 { font-size: 34px; }
+  .pieces-grid { grid-template-columns: repeat(2, 1fr); }
+  .lightbox .lb-prev { left: 6px; }
+  .lightbox .lb-next { right: 6px; }
+  .lightbox .lb-close { top: -50px; }
+}
+@media (max-width: 620px) {
+  .pieces-grid { grid-template-columns: 1fr; gap: 34px; }
+  .piece-featured { margin-bottom: 40px; padding-bottom: 40px; }
+  .piece-featured h3 { font-size: 30px; }
+  .lightbox { padding: 16px; }
+  .lightbox-stage img { max-height: 66vh; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .piece-figure,
+  .piece-figure::after { transition: none; }
+  .piece-figure:hover { transform: none; }
+}
