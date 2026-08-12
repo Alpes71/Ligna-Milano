@@ -1,0 +1,274 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Simulador de producto | Ligna Milano</title>
+  <meta name="description" content="Sube tu imagen, elige producto y estilo, y visualiza una aproximación de cómo quedaría tu pieza personalizada de Ligna Milano. Pide presupuesto en un clic.">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <link rel="canonical" href="https://lignamilano.com/simulador.html">
+  <meta property="og:title" content="Simulador de producto | Ligna Milano">
+  <meta property="og:description" content="Visualiza una aproximación de tu pieza personalizada antes de pedirla.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://lignamilano.com/simulador.html">
+  <meta property="og:image" content="https://lignamilano.com/assets/img/og-ligna-milano.png">
+  <meta name="theme-color" content="#080807">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="assets/img/favicon-192.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/styles.css?v=10">
+  <link rel="stylesheet" href="assets/css/cookie-banner.css?v=1">
+  <link rel="stylesheet" href="assets/css/simulador.css?v=1">
+</head>
+<body>
+  <a class="skip-link" href="#main">Saltar al contenido</a>
+
+  <header class="site-header is-compact" data-header>
+    <div class="container header-inner">
+      <a class="brand" href="index.html#home" aria-label="Ligna Milano, inicio">
+        <img src="assets/img/logo-ligna-milano.png" alt="Ligna Milano" class="brand-logo">
+        <span class="brand-copy"><strong>Ligna Milano</strong><small>Diseño que deja huella</small></span>
+      </a>
+      <nav id="site-nav" class="site-nav legal-nav">
+        <a href="index.html#home">Home</a>
+        <a href="index.html#galeria">Galería</a>
+        <a href="index.html#productos">Productos</a>
+        <a href="simulador.html" class="is-active">Simulador</a>
+        <a href="index.html#contacto">Contacto</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="legal-main">
+    <section class="section sim-hero">
+      <div class="container">
+        <span class="eyebrow">Simulador</span>
+        <h1>Imagina tu pieza antes de encargarla.</h1>
+        <p class="sim-lead">Sube una imagen, elige el producto y un estilo, y verás una aproximación de cómo podría quedar. Cuando te guste, pídenos presupuesto con un clic y recibiremos tu diseño.</p>
+      </div>
+    </section>
+
+    <section class="section" style="padding-top:10px">
+      <div class="container">
+        <div class="sim-layout">
+
+          <div class="sim-controls">
+            <div class="sim-field">
+              <label>1 · Tu imagen</label>
+              <div class="dropzone" data-dropzone tabindex="0" role="button" aria-label="Subir imagen, PNG o JPG, máximo 5 megas">
+                <div class="dropzone__icon" aria-hidden="true">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 16V4M6 10l6-6 6 6M4 20h16"/></svg>
+                </div>
+                <div class="dropzone__title">Arrastra o haz clic para subir</div>
+                <div class="dropzone__hint">PNG o JPG · máximo 5 MB</div>
+                <input type="file" accept="image/png,image/jpeg" data-file hidden>
+              </div>
+            </div>
+
+            <div class="sim-field">
+              <label for="sim-product">2 · Producto</label>
+              <select id="sim-product" data-product>
+                <option value="" selected disabled>Selecciona un producto</option>
+                <option value="llavero-cuero">Llavero de cuero</option>
+                <option value="llavero-metal">Llavero de metal</option>
+                <option value="llavero-madera">Llavero de madera</option>
+                <option value="moneda">Moneda 4 cm Ø</option>
+                <option value="lienzo-rect">Lienzo rectangular</option>
+                <option value="lienzo-cuadrado">Lienzo cuadrado</option>
+                <option value="lienzo-redondo">Lienzo redondo</option>
+                <option value="porta-10x15">Portarretrato 10×15</option>
+                <option value="porta-15x20">Portarretrato 15×20</option>
+                <option value="porta-20x25">Portarretrato 20×25</option>
+                <option value="piedra-amorfa">Piedra amorfa</option>
+                <option value="piedra-rect">Piedra rectangular</option>
+                <option value="piedra-redonda">Piedra redonda</option>
+                <option value="piedra-cuadrada">Piedra cuadrada</option>
+                <option value="acrilico">Acrílico</option>
+                <option value="caja-metalica">Caja metálica (tapa)</option>
+                <option value="taza">Taza de té o café</option>
+                <option value="vaso-whisky">Vaso de whisky</option>
+                <option value="vaso-largo">Vaso de trago largo</option>
+                <option value="botella-termica">Botella térmica ≤0,5 L</option>
+                <option value="jarra-termica">Jarra térmica ≤0,5 L</option>
+                <option value="ceramico-rect">Cerámico rectangular ≤30×40</option>
+                <option value="ceramico-cuadrado">Cerámico cuadrado ≤30×30</option>
+                <option value="ceramico-redondo">Cerámico redondo ≤30 Ø</option>
+                <option value="azulejo">Azulejo</option>
+                <option value="posavasos">Posavasos</option>
+                <option value="iman">Imán</option>
+                <option value="marcapaginas">Marcapáginas</option>
+                <option value="placa">Placa / plaquita</option>
+                <option value="funda-movil">Funda de móvil rígida</option>
+                <option value="adorno-navideno">Adorno navideño plano</option>
+                <option value="bandeja">Bandeja pequeña</option>
+              </select>
+            </div>
+
+            <div class="sim-field">
+              <label for="sim-style">3 · Estilo</label>
+              <select id="sim-style" data-style>
+                <optgroup label="Estilos que puedes previsualizar aquí">
+                  <option value="neutro" selected>Neutro (foto tal cual)</option>
+                  <option value="oleo">Óleo con pincelada</option>
+                  <option value="acuarela">Acuarela</option>
+                  <option value="comic">Cómic / viñeta</option>
+                  <option value="boceto">Boceto a lápiz</option>
+                  <option value="grabado">Grabado en cobre</option>
+                  <option value="grises">Blanco y negro</option>
+                  <option value="sepia">Sepia clásico</option>
+                  <option value="duotono">Duotono carbón y champán</option>
+                  <option value="cobre">Viraje cobre</option>
+                  <option value="vibrante">Color vibrante</option>
+                  <option value="calido">Tono cálido</option>
+                  <option value="frio">Tono frío</option>
+                  <option value="desaturado">Desaturado suave</option>
+                  <option value="contraste">Alto contraste</option>
+                  <option value="posterizar">Posterizado plano</option>
+                  <option value="umbral">Alto contraste puro</option>
+                </optgroup>
+                <optgroup label="Ideas de estilo — súbela ya procesada">
+                  <option value="idea-impresionismo">Impresionismo</option>
+                  <option value="idea-puntillismo">Puntillismo</option>
+                  <option value="idea-postimpresionismo">Postimpresionismo de trazo grueso</option>
+                  <option value="idea-expresionismo">Expresionismo</option>
+                  <option value="idea-cubismo">Cubismo</option>
+                  <option value="idea-surrealismo">Surrealismo</option>
+                  <option value="idea-artnouveau">Art nouveau floral</option>
+                  <option value="idea-artdeco">Art déco geométrico</option>
+                  <option value="idea-barroco">Retrato barroco</option>
+                  <option value="idea-renacentista">Retrato renacentista</option>
+                  <option value="idea-acuarela-oriental">Tinta y acuarela oriental</option>
+                  <option value="idea-ukiyoe">Estampa japonesa clásica</option>
+                  <option value="idea-manga">Estética manga japonesa</option>
+                  <option value="idea-anime">Ilustración anime</option>
+                  <option value="idea-chibi">Estilo chibi</option>
+                  <option value="idea-caricatura">Caricatura</option>
+                  <option value="idea-lineaclara">Cómic europeo de línea clara</option>
+                  <option value="idea-noir">Cómic noir de alto contraste</option>
+                  <option value="idea-popart">Pop art de los 60</option>
+                  <option value="idea-lowpoly">Geométrico low poly</option>
+                  <option value="idea-vectorial">Ilustración vectorial plana</option>
+                  <option value="idea-pixel">Pixel art</option>
+                  <option value="idea-vitral">Vitral emplomado</option>
+                  <option value="idea-mosaico">Mosaico de teselas</option>
+                  <option value="idea-grabado-antiguo">Grabado antiguo a línea</option>
+                  <option value="idea-linograbado">Linograbado</option>
+                  <option value="idea-siluetas">Siluetas a contraluz</option>
+                  <option value="idea-neon">Neón sobre fondo oscuro</option>
+                  <option value="idea-vintage-poster">Cartel vintage</option>
+                  <option value="idea-minimal">Minimalista de una línea</option>
+                  <option value="idea-botanico">Lámina botánica</option>
+                  <option value="idea-mapa">Cartografía antigua</option>
+                  <option value="idea-comic-usa">Cómic de superhéroes</option>
+                </optgroup>
+              </select>
+            </div>
+
+            <div class="sim-approx" data-idea-note hidden>
+              <span aria-hidden="true">💡</span>
+              <div><strong><span data-idea-name>Ese estilo</span></strong> es una idea de inspiración: el simulador no puede aplicarlo aquí. Si lo quieres, aplícalo en tu editor favorito y sube la imagen ya procesada. Mientras tanto verás tu foto sin filtrar sobre el producto.</div>
+            </div>
+          </div>
+
+          <div class="sim-stage">
+            <div class="sim-canvas-wrap">
+              <div class="sim-placeholder" data-canvas-placeholder>
+                <svg width="46" height="46" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+                <p>Sube una imagen y elige un producto para ver la simulación.</p>
+              </div>
+              <canvas data-canvas aria-label="Previsualización del producto simulado"></canvas>
+            </div>
+
+            <div class="sim-approx">
+              <span aria-hidden="true">ⓘ</span>
+              <div><strong>Es una aproximación.</strong> Colores, encuadre, textura y relieve del resultado final pueden variar según el material y el proceso de impresión UV. Sirve para hacerte una idea, no es el resultado exacto.</div>
+            </div>
+
+            <p class="sim-status" data-sim-status aria-live="polite"></p>
+
+            <form class="sim-request" data-sim-form action="send-simulador.php" method="POST">
+              <h3>Pedir presupuesto de este diseño</h3>
+              <input type="text" name="_lm_website" tabindex="-1" autocomplete="new-password" aria-hidden="true" style="position:absolute;left:-9999px;opacity:0">
+              <input type="hidden" name="page" value="simulador.lignamilano.com">
+              <input type="hidden" name="simImage" data-sim-image>
+              <input type="hidden" name="origImage" data-orig-image>
+              <input type="hidden" name="productValue" data-product-value>
+
+              <div class="sim-row two">
+                <div class="sim-row">
+                  <label for="sim-nombre">Nombre <span class="req">*</span></label>
+                  <input id="sim-nombre" type="text" name="nombre" autocomplete="given-name" required maxlength="80" placeholder="Tu nombre">
+                </div>
+                <div class="sim-row">
+                  <label for="sim-apellido">Apellido <span class="req">*</span></label>
+                  <input id="sim-apellido" type="text" name="apellido" autocomplete="family-name" required maxlength="80" placeholder="Tu apellido">
+                </div>
+              </div>
+              <div class="sim-row two">
+                <div class="sim-row">
+                  <label for="sim-email">Email <span class="req">*</span></label>
+                  <input id="sim-email" type="email" name="email" autocomplete="email" required maxlength="180" placeholder="tu@email.com">
+                </div>
+                <div class="sim-row">
+                  <label for="sim-movil">Móvil <span class="req">*</span></label>
+                  <input id="sim-movil" type="tel" name="movil" autocomplete="tel" required maxlength="40" placeholder="+34 600 000 000">
+                </div>
+              </div>
+
+              <label class="sim-privacy">
+                <input type="checkbox" name="privacyAccepted" value="1" required>
+                <span>He leído y acepto la <a href="privacidad.html" target="_blank" rel="noopener">Política de Privacidad</a>. Autorizo el envío de mi imagen y la simulación para preparar el presupuesto.</span>
+              </label>
+
+              <button class="btn btn-primary sim-submit" type="submit" data-sim-submit disabled>Pedir presupuesto de este diseño</button>
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div class="sim-modal" data-sim-modal hidden role="dialog" aria-modal="true" aria-labelledby="simModalTitle">
+    <div class="sim-modal__card">
+      <span class="modal-kicker">Ligna Milano</span>
+      <h2 id="simModalTitle">Solicitud enviada</h2>
+      <p>Hemos recibido tu imagen, la simulación y tus datos. Revisaremos la viabilidad y te enviaremos un presupuesto lo antes posible.</p>
+      <button class="btn btn-primary" type="button" data-sim-modal-close>Perfecto</button>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <img src="assets/img/logo-ligna-milano.png" alt="Ligna Milano" class="footer-logo">
+        <p>Diseño que deja huella.</p>
+      </div>
+      <div>
+        <strong>Mapa</strong>
+        <a href="index.html#home">Home</a>
+        <a href="index.html#galeria">Galería</a>
+        <a href="index.html#productos">Productos</a>
+        <a href="simulador.html">Simulador</a>
+        <a href="index.html#contacto">Contacto</a>
+      </div>
+      <div>
+        <strong>Legal</strong>
+        <a href="aviso-legal.html">Aviso legal</a>
+        <a href="privacidad.html">Política de Privacidad</a>
+        <a href="cookies.html">Política de Cookies</a>
+        <a href="#" data-cookie-preferences>Gestionar cookies</a>
+        <a href="condiciones.html">Condiciones de servicio</a>
+        <p>Ligna Milano&trade;</p>
+        <p>© <span id="year"></span> Ligna Milano. Todos los derechos reservados.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/legal.js?v=11"></script>
+  <script src="assets/js/cookie-banner.js?v=1"></script>
+  <script src="assets/js/simulador.js?v=1"></script>
+</body>
+</html>

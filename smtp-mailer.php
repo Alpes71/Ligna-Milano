@@ -182,4 +182,112 @@ function ligna_send_email(string $to, string $subject, string $body, string $rep
 
     return @mail($to, ligna_encode_subject($subject), $body, implode("\r\n", $headers));
 }
+
+/**
+ * Envío con adjuntos (MIME multipart/mixed) vía SMTP autenticado.
+ * $attachments = array de ['name'=>..., 'mime'=>..., 'data'=>binario].
+ * Solo se usa para el simulador; no afecta a ligna_send_email().
+ */
+function ligna_send_email_with_attachments(string $to, string $subject, string $body, array $attachments = [], string $replyToEmail = '', string $replyToName = ''): bool {
+    if (!ligna_has_smtp_config()) {
+        // Sin SMTP no garantizamos adjuntos; enviamos al menos el texto.
+        return ligna_send_email($to, $subject, $body, $replyToEmail, $replyToName);
+    }
+
+    $host = ligna_env_or_const('LIGNA_SMTP_HOST');
+    $port = (int)ligna_env_or_const('LIGNA_SMTP_PORT', '465');
+    $secure = strtolower(ligna_env_or_const('LIGNA_SMTP_SECURE', 'ssl'));
+    $username = ligna_env_or_const('LIGNA_SMTP_USER');
+    $password = ligna_env_or_const('LIGNA_SMTP_PASSWORD');
+    $fromEmail = ligna_env_or_const('LIGNA_FROM_EMAIL', $username);
+    $fromName = ligna_env_or_const('LIGNA_FROM_NAME', 'Ligna Milano');
+
+    $to = ligna_header_safe($to, 254);
+    if (!filter_var($to, FILTER_VALIDATE_EMAIL) || !filter_var($fromEmail, FILTER_VALIDATE_EMAIL)) {
+        throw new RuntimeException('Email de origen o destino no válido.');
+    }
+    if ($replyToEmail !== '' && !filter_var($replyToEmail, FILTER_VALIDATE_EMAIL)) {
+        $replyToEmail = ''; $replyToName = '';
+    }
+
+    $remote = ($secure === 'ssl' || $secure === 'tls' || $port === 465)
+        ? 'ssl://' . $host . ':' . $port
+        : 'tcp://' . $host . ':' . $port;
+
+    $socket = @stream_socket_client($remote, $errno, $errstr, 20, STREAM_CLIENT_CONNECT);
+    if (!$socket) {
+        error_log('Ligna SMTP (adjuntos) no conecta: ' . $errstr);
+        return false;
+    }
+    stream_set_timeout($socket, 30);
+
+    try {
+        ligna_smtp_expect($socket, [220], 'Conexión');
+        ligna_smtp_command($socket, 'EHLO ' . ($_SERVER['SERVER_NAME'] ?? 'lignamilano.com'), [250], 'EHLO');
+
+        if ($secure === 'starttls' || $secure === 'tls-starttls') {
+            ligna_smtp_command($socket, 'STARTTLS', [220], 'STARTTLS');
+            if (!stream_socket_enable_crypto($socket, true, STREAM_CRYPTO_METHOD_TLS_CLIENT)) {
+                throw new RuntimeException('No se pudo activar TLS.');
+            }
+            ligna_smtp_command($socket, 'EHLO ' . ($_SERVER['SERVER_NAME'] ?? 'lignamilano.com'), [250], 'EHLO TLS');
+        }
+
+        ligna_smtp_command($socket, 'AUTH LOGIN', [334], 'AUTH LOGIN');
+        ligna_smtp_command($socket, base64_encode($username), [334], 'Usuario SMTP');
+        ligna_smtp_command($socket, base64_encode($password), [235], 'Contraseña SMTP');
+        ligna_smtp_command($socket, 'MAIL FROM:<' . $fromEmail . '>', [250], 'MAIL FROM');
+        ligna_smtp_command($socket, 'RCPT TO:<' . $to . '>', [250, 251], 'RCPT TO');
+        ligna_smtp_command($socket, 'DATA', [354], 'DATA');
+
+        $boundary = 'lm_' . bin2hex(random_bytes(16));
+        $headers = [
+            'MIME-Version: 1.0',
+            'Content-Type: multipart/mixed; boundary="' . $boundary . '"',
+            'From: ' . ligna_mailbox($fromEmail, $fromName),
+            'To: ' . $to,
+            'Subject: ' . ligna_encode_subject($subject),
+            'Date: ' . date(DATE_RFC2822),
+            'Message-ID: <' . bin2hex(random_bytes(12)) . '@lignamilano.com>',
+            'X-Mailer: Ligna Milano SMTP'
+        ];
+        if ($replyToEmail !== '') {
+            $headers[] = 'Reply-To: ' . ligna_mailbox($replyToEmail, $replyToName);
+        }
+
+        $parts = [];
+        $parts[] = '--' . $boundary;
+        $parts[] = 'Content-Type: text/plain; charset=UTF-8';
+        $parts[] = 'Content-Transfer-Encoding: 8bit';
+        $parts[] = '';
+        $parts[] = ligna_dot_stuff($body);
+
+        foreach ($attachments as $att) {
+            $name = ligna_header_safe((string)($att['name'] ?? 'adjunto'), 120);
+            $mime = ligna_header_safe((string)($att['mime'] ?? 'application/octet-stream'), 80);
+            $data = (string)($att['data'] ?? '');
+            if ($data === '') continue;
+            $parts[] = '--' . $boundary;
+            $parts[] = 'Content-Type: ' . $mime . '; name="' . $name . '"';
+            $parts[] = 'Content-Transfer-Encoding: base64';
+            $parts[] = 'Content-Disposition: attachment; filename="' . $name . '"';
+            $parts[] = '';
+            $parts[] = chunk_split(base64_encode($data), 76, "\r\n");
+        }
+        $parts[] = '--' . $boundary . '--';
+
+        $message = implode("\r\n", $headers) . "\r\n\r\n" . implode("\r\n", $parts) . "\r\n.";
+        fwrite($socket, $message . "\r\n");
+        ligna_smtp_expect($socket, [250], 'Envío del mensaje');
+        @fwrite($socket, "QUIT\r\n");
+        @fclose($socket);
+        return true;
+    } catch (Throwable $e) {
+        @fwrite($socket, "QUIT\r\n");
+        @fclose($socket);
+        error_log('Ligna SMTP (adjuntos) error: ' . $e->getMessage());
+        return false;
+    }
+}
+
 ?>
