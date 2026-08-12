@@ -1,61 +1,46 @@
-LIGNA MILANO - Simulador de producto
-=====================================
+LIGNA MILANO - "Disena tu pieza" (rediseno del simulador)
+=========================================================
 
-QUE HACE
-  Pagina nueva (simulador.html) donde el cliente:
-  1. Sube una imagen (solo PNG o JPG, max 5 MB)
-  2. Elige producto (32 opciones) y estilo (50: 17 con previsualizacion real
-     + 33 "ideas" que solo orientan, sin aplicar filtro)
-  3. Ve una aproximacion montada sobre el producto
-  4. Rellena nombre, apellido, email y movil (obligatorios) y pide presupuesto
-  A info@lignamilano.com llega un email (desde webform@) con la foto original
-  + la simulacion adjuntas + los datos.
+QUE CAMBIA respecto a la version anterior
+  - Se ELIMINA la simulacion automatica en el navegador (no gustaba el acabado).
+  - Ahora el cliente sube su foto y la ve TAL CUAL. El efecto lo aplicais
+    vosotros y le enviais el resultado real con el presupuesto.
+  - Desplegables ARREGLADOS: las opciones ya se leen (texto marfil sobre
+    fondo grafito; grupos en cobre).
+  - Lista de efectos reorganizada por familias (55 opciones + "Otro"),
+    sin nombres de marca. El efecto es OPCIONAL.
+  - NUEVO campo de instrucciones libres, hasta 2000 caracteres, OPCIONAL,
+    con contador. Se adjunta al correo.
+  - Limite de imagen SUBIDO a 10 MB.
+  - El correo ahora lleva 1 adjunto (la foto del cliente) + todos los datos
+    + las instrucciones.
 
-ARCHIVOS DEL PAQUETE
-  simulador.html                  pagina nueva
-  assets/css/simulador.css        estilos (paleta oficial v2.1)
-  assets/js/simulador.js          motor de filtros + montaje + envio
-  send-simulador.php              endpoint que valida y envia el email
-  smtp-mailer.php                 SUSTITUYE al actual: anade envio con adjuntos
-                                  (la funcion vieja NO se toca; el formulario de
-                                  contacto y el chatbot siguen igual)
-  index.html                      SUSTITUYE al actual: enlace "Simulador" en menu y pie
-  sitemap.xml                     SUSTITUYE al actual: incluye /simulador.html
+ARCHIVOS (sustituyen a los de la entrega anterior)
+  simulador.html                pagina rediseñada
+  assets/css/simulador.css      desplegables legibles + preview + textarea
+  assets/js/simulador.js        reescrito, sin canvas ni filtros
+  send-simulador.php            1 adjunto, campo notas, limite 10 MB
+  smtp-mailer.php               igual que la version que ya subiste (incluido
+                                por completitud; puedes no volver a subirlo)
 
-  NOTA: assets/css/simulador.css ya esta subido al repositorio; igualmente va en
-  el ZIP para que lo tengas completo en local.
+  El nombre del enlace en el menu pasa a "Disena tu pieza". Si ya tenias
+  "Simulador" en el menu de index.html, cambialo o deja el que prefieras;
+  el archivo sigue llamandose simulador.html y NO hay que renombrarlo.
 
 PASOS
 -----
 1. Descomprime sobre la carpeta del repositorio, respetando rutas
 2. git add -A
-3. git commit -m "Simulador de producto"
+3. git commit -m "Rediseno simulador: sin previsualizacion, efecto por encargo"
 4. git push
 5. Sube a IONOS:
      - simulador.html
      - assets/css/simulador.css
      - assets/js/simulador.js
      - send-simulador.php
-     - smtp-mailer.php   (importante: es la version nueva con adjuntos)
-     - index.html
-     - sitemap.xml
+   (smtp-mailer.php solo si no lo subiste antes)
 
-IMPORTANTE - PRUEBALO EN IONOS
-------------------------------
-La parte PHP (envio con imagenes adjuntas) NO se puede probar fuera del
-servidor. Haz UNA prueba real cuando subas:
-  - Entra en lignamilano.com/simulador.html
-  - Sube una foto, elige producto y estilo, rellena tus datos y envia
-  - Confirma que te llega el email a info@ con las DOS imagenes adjuntas
-Si no llega, avisame: revisaremos permisos de la carpeta storage/ y logs.
-
-DETALLES TECNICOS
-  - Limite 5 MB por imagen, validado en navegador Y en servidor.
-  - El servidor comprueba que el archivo es de verdad PNG/JPG
-    (getimagesizefromstring), no solo por la extension.
-  - Copia de respaldo de cada solicitud en storage/simulador-leads/.
-  - Honeypot antispam incluido.
-  - La imagen simulada solo se ve; no hay boton de descarga.
-  - Estilos "idea" (manga, impresionismo, etc.) son descriptivos, sin nombres
-    de marca, para no prometer transformaciones que el filtro no hace ni pisar
-    derechos de autor.
+PRUEBA EN IONOS
+  Igual que antes: sube una foto, rellena datos, envia, y confirma que llega
+  el correo a info@ con la foto adjunta, el efecto elegido y las instrucciones.
+  Como ya funciono la vez pasada, deberia ir directo.

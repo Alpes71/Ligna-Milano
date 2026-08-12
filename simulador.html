@@ -3,12 +3,12 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Simulador de producto | Ligna Milano</title>
-  <meta name="description" content="Sube tu imagen, elige producto y estilo, y visualiza una aproximación de cómo quedaría tu pieza personalizada de Ligna Milano. Pide presupuesto en un clic.">
+  <title>Diseña tu pieza | Ligna Milano</title>
+  <meta name="description" content="Sube tu imagen, elige el producto y el efecto que quieres, y pide presupuesto. En Ligna Milano procesamos tu diseño y lo montamos sobre el producto para tu personalización con impresión UV.">
   <meta name="robots" content="index, follow, max-image-preview:large">
   <link rel="canonical" href="https://lignamilano.com/simulador.html">
-  <meta property="og:title" content="Simulador de producto | Ligna Milano">
-  <meta property="og:description" content="Visualiza una aproximación de tu pieza personalizada antes de pedirla.">
+  <meta property="og:title" content="Diseña tu pieza | Ligna Milano">
+  <meta property="og:description" content="Sube tu imagen, elige producto y efecto, y pide presupuesto de tu pieza personalizada.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://lignamilano.com/simulador.html">
   <meta property="og:image" content="https://lignamilano.com/assets/img/og-ligna-milano.png">
@@ -20,7 +20,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/styles.css?v=10">
   <link rel="stylesheet" href="assets/css/cookie-banner.css?v=1">
-  <link rel="stylesheet" href="assets/css/simulador.css?v=1">
+  <link rel="stylesheet" href="assets/css/simulador.css?v=2">
 </head>
 <body>
   <a class="skip-link" href="#main">Saltar al contenido</a>
@@ -35,7 +35,7 @@
         <a href="index.html#home">Home</a>
         <a href="index.html#galeria">Galería</a>
         <a href="index.html#productos">Productos</a>
-        <a href="simulador.html" class="is-active">Simulador</a>
+        <a href="simulador.html" class="is-active">Diseña tu pieza</a>
         <a href="index.html#contacto">Contacto</a>
       </nav>
     </div>
@@ -44,9 +44,9 @@
   <main id="main" class="legal-main">
     <section class="section sim-hero">
       <div class="container">
-        <span class="eyebrow">Simulador</span>
-        <h1>Imagina tu pieza antes de encargarla.</h1>
-        <p class="sim-lead">Sube una imagen, elige el producto y un estilo, y verás una aproximación de cómo podría quedar. Cuando te guste, pídenos presupuesto con un clic y recibiremos tu diseño.</p>
+        <span class="eyebrow">Diseña tu pieza</span>
+        <h1>Tu imagen, tu producto, tu estilo.</h1>
+        <p class="sim-lead">Sube una imagen, elige el producto y el efecto que te gustaría, y añade cualquier instrucción. Nuestro equipo procesa tu diseño, lo monta sobre el producto y te envía un presupuesto con el resultado. Sin compromiso.</p>
       </div>
     </section>
 
@@ -57,14 +57,15 @@
           <div class="sim-controls">
             <div class="sim-field">
               <label>1 · Tu imagen</label>
-              <div class="dropzone" data-dropzone tabindex="0" role="button" aria-label="Subir imagen, PNG o JPG, máximo 5 megas">
+              <div class="dropzone" data-dropzone tabindex="0" role="button" aria-label="Subir imagen, PNG o JPG, máximo 10 megas">
                 <div class="dropzone__icon" aria-hidden="true">
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 16V4M6 10l6-6 6 6M4 20h16"/></svg>
                 </div>
                 <div class="dropzone__title">Arrastra o haz clic para subir</div>
-                <div class="dropzone__hint">PNG o JPG · máximo 5 MB</div>
+                <div class="dropzone__hint">PNG o JPG · máximo 10 MB</div>
                 <input type="file" accept="image/png,image/jpeg" data-file hidden>
               </div>
+              <p class="sim-file-name" data-file-name></p>
             </div>
 
             <div class="sim-field">
@@ -107,15 +108,40 @@
             </div>
 
             <div class="sim-field">
-              <label for="sim-style">3 · Estilo</label>
+              <label for="sim-style">3 · Efecto o estilo <span style="text-transform:none;letter-spacing:0;color:var(--muted);font-weight:400">(opcional)</span></label>
               <select id="sim-style" data-style>
-                <optgroup label="Estilos que puedes previsualizar aquí">
-                  <option value="neutro" selected>Neutro (foto tal cual)</option>
+                <optgroup label="Sin efecto">
+                  <option value="neutro" selected>Ninguno (la foto tal cual)</option>
+                </optgroup>
+                <optgroup label="Pictóricos">
                   <option value="oleo">Óleo con pincelada</option>
                   <option value="acuarela">Acuarela</option>
+                  <option value="impresionismo">Impresionismo</option>
+                  <option value="puntillismo">Puntillismo</option>
+                  <option value="postimpresionismo">Postimpresionismo de trazo grueso</option>
+                  <option value="expresionismo">Expresionismo</option>
+                  <option value="cubismo">Cubismo</option>
+                  <option value="surrealismo">Surrealismo</option>
+                  <option value="barroco">Retrato barroco</option>
+                  <option value="renacentista">Retrato renacentista</option>
+                  <option value="acuarela-oriental">Tinta y acuarela oriental</option>
+                  <option value="gouache">Gouache mate</option>
+                </optgroup>
+                <optgroup label="Cómic e ilustración">
                   <option value="comic">Cómic / viñeta</option>
-                  <option value="boceto">Boceto a lápiz</option>
-                  <option value="grabado">Grabado en cobre</option>
+                  <option value="lineaclara">Cómic europeo de línea clara</option>
+                  <option value="noir">Cómic noir de alto contraste</option>
+                  <option value="comic-usa">Cómic de superhéroes</option>
+                  <option value="manga">Estética manga japonesa</option>
+                  <option value="anime">Ilustración anime</option>
+                  <option value="chibi">Estilo chibi</option>
+                  <option value="caricatura">Caricatura</option>
+                  <option value="vectorial">Ilustración vectorial plana</option>
+                  <option value="lowpoly">Geométrico low poly</option>
+                  <option value="pixel">Pixel art</option>
+                  <option value="popart">Pop art de los 60</option>
+                </optgroup>
+                <optgroup label="Fotográficos">
                   <option value="grises">Blanco y negro</option>
                   <option value="sepia">Sepia clásico</option>
                   <option value="duotono">Duotono carbón y champán</option>
@@ -125,65 +151,58 @@
                   <option value="frio">Tono frío</option>
                   <option value="desaturado">Desaturado suave</option>
                   <option value="contraste">Alto contraste</option>
-                  <option value="posterizar">Posterizado plano</option>
-                  <option value="umbral">Alto contraste puro</option>
+                  <option value="vintage-foto">Foto vintage</option>
+                  <option value="cine">Grado cinematográfico</option>
+                  <option value="hdr">HDR intenso</option>
                 </optgroup>
-                <optgroup label="Ideas de estilo — súbela ya procesada">
-                  <option value="idea-impresionismo">Impresionismo</option>
-                  <option value="idea-puntillismo">Puntillismo</option>
-                  <option value="idea-postimpresionismo">Postimpresionismo de trazo grueso</option>
-                  <option value="idea-expresionismo">Expresionismo</option>
-                  <option value="idea-cubismo">Cubismo</option>
-                  <option value="idea-surrealismo">Surrealismo</option>
-                  <option value="idea-artnouveau">Art nouveau floral</option>
-                  <option value="idea-artdeco">Art déco geométrico</option>
-                  <option value="idea-barroco">Retrato barroco</option>
-                  <option value="idea-renacentista">Retrato renacentista</option>
-                  <option value="idea-acuarela-oriental">Tinta y acuarela oriental</option>
-                  <option value="idea-ukiyoe">Estampa japonesa clásica</option>
-                  <option value="idea-manga">Estética manga japonesa</option>
-                  <option value="idea-anime">Ilustración anime</option>
-                  <option value="idea-chibi">Estilo chibi</option>
-                  <option value="idea-caricatura">Caricatura</option>
-                  <option value="idea-lineaclara">Cómic europeo de línea clara</option>
-                  <option value="idea-noir">Cómic noir de alto contraste</option>
-                  <option value="idea-popart">Pop art de los 60</option>
-                  <option value="idea-lowpoly">Geométrico low poly</option>
-                  <option value="idea-vectorial">Ilustración vectorial plana</option>
-                  <option value="idea-pixel">Pixel art</option>
-                  <option value="idea-vitral">Vitral emplomado</option>
-                  <option value="idea-mosaico">Mosaico de teselas</option>
-                  <option value="idea-grabado-antiguo">Grabado antiguo a línea</option>
-                  <option value="idea-linograbado">Linograbado</option>
-                  <option value="idea-siluetas">Siluetas a contraluz</option>
-                  <option value="idea-neon">Neón sobre fondo oscuro</option>
-                  <option value="idea-vintage-poster">Cartel vintage</option>
-                  <option value="idea-minimal">Minimalista de una línea</option>
-                  <option value="idea-botanico">Lámina botánica</option>
-                  <option value="idea-mapa">Cartografía antigua</option>
-                  <option value="idea-comic-usa">Cómic de superhéroes</option>
+                <optgroup label="Dibujo y grabado">
+                  <option value="boceto">Boceto a lápiz</option>
+                  <option value="carboncillo">Carboncillo</option>
+                  <option value="tinta">Tinta a plumilla</option>
+                  <option value="grabado">Grabado en cobre</option>
+                  <option value="grabado-antiguo">Grabado antiguo a línea</option>
+                  <option value="linograbado">Linograbado</option>
+                  <option value="siluetas">Siluetas a contraluz</option>
+                  <option value="minimal">Minimalista de una línea</option>
+                </optgroup>
+                <optgroup label="Decorativos">
+                  <option value="artnouveau">Art nouveau floral</option>
+                  <option value="artdeco">Art déco geométrico</option>
+                  <option value="ukiyoe">Estampa japonesa clásica</option>
+                  <option value="vitral">Vitral emplomado</option>
+                  <option value="mosaico">Mosaico de teselas</option>
+                  <option value="neon">Neón sobre fondo oscuro</option>
+                  <option value="vintage-poster">Cartel vintage</option>
+                  <option value="botanico">Lámina botánica</option>
+                  <option value="mapa">Cartografía antigua</option>
+                </optgroup>
+                <optgroup label="Abierto">
+                  <option value="otro">Otro (lo describo abajo)</option>
                 </optgroup>
               </select>
             </div>
 
-            <div class="sim-approx" data-idea-note hidden>
-              <span aria-hidden="true">💡</span>
-              <div><strong><span data-idea-name>Ese estilo</span></strong> es una idea de inspiración: el simulador no puede aplicarlo aquí. Si lo quieres, aplícalo en tu editor favorito y sube la imagen ya procesada. Mientras tanto verás tu foto sin filtrar sobre el producto.</div>
+            <div class="sim-field">
+              <label for="sim-notes">4 · Instrucciones <span style="text-transform:none;letter-spacing:0;color:var(--muted);font-weight:400">(opcional)</span></label>
+              <textarea id="sim-notes" data-notes name="notas" rows="5" maxlength="2000" placeholder="Cuéntanos lo que quieras: otro efecto que no esté en la lista, colores, recortes, texto que añadir, medidas concretas, o cualquier detalle del encargo."></textarea>
+              <div class="sim-notes-count" data-notes-count>0 / 2000</div>
             </div>
           </div>
 
           <div class="sim-stage">
             <div class="sim-canvas-wrap">
-              <div class="sim-placeholder" data-canvas-placeholder>
+              <div class="sim-placeholder" data-preview-placeholder>
                 <svg width="46" height="46" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
-                <p>Sube una imagen y elige un producto para ver la simulación.</p>
+                <p>Sube tu imagen para verla aquí.</p>
               </div>
-              <canvas data-canvas aria-label="Previsualización del producto simulado"></canvas>
+              <figure class="sim-preview" data-preview hidden>
+                <img data-preview-img alt="Vista previa de tu imagen">
+              </figure>
             </div>
 
             <div class="sim-approx">
               <span aria-hidden="true">ⓘ</span>
-              <div><strong>Es una aproximación.</strong> Colores, encuadre, textura y relieve del resultado final pueden variar según el material y el proceso de impresión UV. Sirve para hacerte una idea, no es el resultado exacto.</div>
+              <div>Esta es tu imagen tal como la subes. <strong>El efecto que elijas lo aplicamos nosotros</strong> y te enviamos el resultado montado sobre el producto junto al presupuesto. Así te aseguras de que el acabado es el real, no una aproximación automática.</div>
             </div>
 
             <p class="sim-status" data-sim-status aria-live="polite"></p>
@@ -192,9 +211,7 @@
               <h3>Pedir presupuesto de este diseño</h3>
               <input type="text" name="_lm_website" tabindex="-1" autocomplete="new-password" aria-hidden="true" style="position:absolute;left:-9999px;opacity:0">
               <input type="hidden" name="page" value="simulador.lignamilano.com">
-              <input type="hidden" name="simImage" data-sim-image>
               <input type="hidden" name="origImage" data-orig-image>
-              <input type="hidden" name="productValue" data-product-value>
 
               <div class="sim-row two">
                 <div class="sim-row">
@@ -219,7 +236,7 @@
 
               <label class="sim-privacy">
                 <input type="checkbox" name="privacyAccepted" value="1" required>
-                <span>He leído y acepto la <a href="privacidad.html" target="_blank" rel="noopener">Política de Privacidad</a>. Autorizo el envío de mi imagen y la simulación para preparar el presupuesto.</span>
+                <span>He leído y acepto la <a href="privacidad.html" target="_blank" rel="noopener">Política de Privacidad</a>. Autorizo el envío de mi imagen para preparar el presupuesto.</span>
               </label>
 
               <button class="btn btn-primary sim-submit" type="submit" data-sim-submit disabled>Pedir presupuesto de este diseño</button>
@@ -235,7 +252,7 @@
     <div class="sim-modal__card">
       <span class="modal-kicker">Ligna Milano</span>
       <h2 id="simModalTitle">Solicitud enviada</h2>
-      <p>Hemos recibido tu imagen, la simulación y tus datos. Revisaremos la viabilidad y te enviaremos un presupuesto lo antes posible.</p>
+      <p>Hemos recibido tu imagen y tus datos. Procesaremos tu diseño y te enviaremos un presupuesto con el resultado montado sobre el producto lo antes posible.</p>
       <button class="btn btn-primary" type="button" data-sim-modal-close>Perfecto</button>
     </div>
   </div>
@@ -251,7 +268,7 @@
         <a href="index.html#home">Home</a>
         <a href="index.html#galeria">Galería</a>
         <a href="index.html#productos">Productos</a>
-        <a href="simulador.html">Simulador</a>
+        <a href="simulador.html">Diseña tu pieza</a>
         <a href="index.html#contacto">Contacto</a>
       </div>
       <div>
@@ -269,6 +286,6 @@
 
   <script src="assets/js/legal.js?v=11"></script>
   <script src="assets/js/cookie-banner.js?v=1"></script>
-  <script src="assets/js/simulador.js?v=1"></script>
+  <script src="assets/js/simulador.js?v=2"></script>
 </body>
 </html>

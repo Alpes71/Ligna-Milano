@@ -30,6 +30,14 @@ function sim_clean(string $v, int $max = 200): string {
     if (sim_u_strlen($v) > $max) $v = sim_u_substr($v, 0, $max);
     return trim($v);
 }
+function sim_clean_multiline(string $v, int $max = 2000): string {
+    $v = str_replace(["\r\n", "\r"], "\n", $v);
+    $v = str_replace("\0", '', $v);
+    // conserva saltos de línea, elimina otros caracteres de control
+    $v = preg_replace('/[\x00-\x09\x0B\x0C\x0E-\x1F\x7F]/u', '', $v) ?? $v;
+    if (sim_u_strlen($v) > $max) $v = sim_u_substr($v, 0, $max);
+    return trim($v);
+}
 function sim_out(array $p, int $code = 200): void {
     http_response_code($code);
     echo json_encode($p, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
@@ -92,6 +100,7 @@ $email    = sim_clean((string)($_POST['email'] ?? ''), 180);
 $movil    = sim_clean((string)($_POST['movil'] ?? ''), 40);
 $producto = sim_clean((string)($_POST['productLabel'] ?? $_POST['productValue'] ?? ''), 120);
 $estilo   = sim_clean((string)($_POST['styleLabel'] ?? ''), 120);
+$notas    = sim_clean_multiline((string)($_POST['notas'] ?? ''), 2000);
 $page     = sim_clean((string)($_POST['page'] ?? ($_SERVER['HTTP_REFERER'] ?? '')), 300);
 $privacy  = (string)($_POST['privacyAccepted'] ?? '') === '1';
 
@@ -109,20 +118,16 @@ if ($producto === '') {
 }
 
 /* ---------- Imágenes ---------- */
-$MAX = 5 * 1024 * 1024; // 5 MB por imagen
+$MAX = 10 * 1024 * 1024; // 10 MB por imagen
 $attachments = [];
 
 $orig = sim_decode_data_url((string)($_POST['origImage'] ?? ''), $MAX);
 if ($orig !== null) {
     $attachments[] = ['name' => 'imagen-cliente.' . sim_ext_from_mime($orig[0]), 'mime' => $orig[0], 'data' => $orig[1]];
 }
-$sim = sim_decode_data_url((string)($_POST['simImage'] ?? ''), $MAX);
-if ($sim !== null) {
-    $attachments[] = ['name' => 'simulacion.' . sim_ext_from_mime($sim[0]), 'mime' => $sim[0], 'data' => $sim[1]];
-}
 
 if (empty($attachments)) {
-    sim_out(['ok' => false, 'message' => 'No se recibió ninguna imagen válida (PNG o JPG, máx. 5 MB).'], 422);
+    sim_out(['ok' => false, 'message' => 'No se recibió ninguna imagen válida (PNG o JPG, máx. 10 MB).'], 422);
 }
 
 /* ---------- Guardado local de respaldo ---------- */
@@ -136,6 +141,7 @@ foreach ($attachments as $att) {
     'nombre' => $nombre, 'apellido' => $apellido,
     'email' => $email, 'movil' => $movil,
     'producto' => $producto, 'estilo' => $estilo,
+    'notas' => $notas,
     'page' => $page, 'attachments' => array_map(fn($a) => $a['name'], $attachments)
 ], JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT));
 
@@ -151,11 +157,14 @@ $body = implode("\n", [
     'Email: ' . $email,
     'Móvil: ' . $movil,
     'Producto: ' . $producto,
-    'Estilo elegido: ' . ($estilo !== '' ? $estilo : 'No indicado'),
+    'Efecto solicitado: ' . ($estilo !== '' ? $estilo : 'Ninguno'),
     'Página: ' . ($page !== '' ? $page : 'No indicada'),
     '',
-    'Adjuntos: imagen original del cliente y simulación generada en la web.',
-    'Nota: la simulación es una aproximación con filtros de navegador, no el resultado final.',
+    'Instrucciones del cliente:',
+    ($notas !== '' ? $notas : '(sin instrucciones adicionales)'),
+    '',
+    'Adjunto: imagen original del cliente.',
+    'Recordatorio: procesar el efecto y montar el producto para el presupuesto.',
     '',
     'Responder directamente a: ' . $email,
     'Privacidad aceptada: Sí',
