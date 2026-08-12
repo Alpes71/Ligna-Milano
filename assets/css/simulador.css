@@ -1,0 +1,245 @@
+/* ============================================
+   Ligna Milano — Simulador de producto
+   Paleta oficial · Manual de Marca v2.1
+   ============================================ */
+
+.sim-hero {
+  padding-top: 130px;
+  padding-bottom: 20px;
+}
+.sim-hero .eyebrow { color: var(--copper); }
+.sim-lead {
+  color: var(--cream-soft);
+  font-size: 17px;
+  line-height: 1.6;
+  max-width: 640px;
+}
+
+.sim-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: start;
+}
+
+/* --- Columna de controles --- */
+.sim-controls { display: grid; gap: 22px; }
+
+.sim-field label {
+  display: block;
+  font-family: "Montserrat", system-ui, sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 9px;
+}
+.sim-field select {
+  width: 100%;
+  padding: 14px 16px;
+  border-radius: 14px;
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, .04);
+  color: var(--cream);
+  font-family: "Montserrat", system-ui, sans-serif;
+  font-size: 15px;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23b87333' stroke-width='2' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 16px center;
+  cursor: pointer;
+}
+.sim-field select:focus-visible {
+  outline: none;
+  border-color: var(--copper);
+}
+
+/* --- Dropzone --- */
+.dropzone {
+  border: 1.5px dashed var(--line);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, .03);
+  padding: 34px 24px;
+  text-align: center;
+  cursor: pointer;
+  transition: border-color .22s ease, background .22s ease;
+}
+.dropzone:hover, .dropzone.is-drag {
+  border-color: var(--copper);
+  background: rgba(184, 115, 51, .07);
+}
+.dropzone:focus-visible { outline: 2px solid var(--copper); outline-offset: 3px; }
+.dropzone.has-image { border-style: solid; border-color: var(--copper); }
+.dropzone__icon {
+  width: 46px; height: 46px;
+  margin: 0 auto 14px;
+  border-radius: 50%;
+  border: 1px solid var(--line);
+  display: grid; place-items: center;
+  color: var(--copper);
+}
+.dropzone__title {
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 22px;
+  color: var(--cream);
+  margin-bottom: 4px;
+}
+.dropzone__hint { color: var(--muted); font-size: 13px; }
+.dropzone.has-image .dropzone__title::after { content: " ✓"; color: var(--copper); }
+
+/* --- Escenario / preview --- */
+.sim-stage {
+  position: sticky;
+  top: 100px;
+}
+.sim-canvas-wrap {
+  position: relative;
+  border-radius: 22px;
+  overflow: hidden;
+  border: 1px solid var(--line-soft);
+  background:
+    radial-gradient(120% 80% at 50% 0%, #1a1613 0%, #0d0b09 60%, #080807 100%);
+  aspect-ratio: 1 / 1;
+  display: grid;
+  place-items: center;
+}
+.sim-canvas-wrap canvas {
+  width: 100%;
+  height: 100%;
+  display: none;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+.sim-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  color: var(--muted);
+  text-align: center;
+  padding: 40px;
+}
+.sim-placeholder svg { opacity: .5; }
+.sim-placeholder p { font-size: 14px; max-width: 240px; }
+
+.sim-approx {
+  margin-top: 14px;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 13px 16px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: rgba(184, 115, 51, .07);
+  color: var(--cream-soft);
+  font-size: 13px;
+  line-height: 1.5;
+}
+.sim-approx strong { color: var(--cream); }
+
+.sim-status {
+  min-height: 20px;
+  margin-top: 10px;
+  font-size: 13.5px;
+  color: var(--muted);
+}
+.sim-status.is-error { color: #e08a5a; }
+
+/* --- Formulario de contacto --- */
+.sim-request {
+  margin-top: 26px;
+  padding-top: 26px;
+  border-top: 1px solid var(--line-soft);
+  display: grid;
+  gap: 16px;
+}
+.sim-request h3 {
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 26px;
+  color: var(--cream);
+}
+.sim-row { display: grid; gap: 8px; }
+.sim-row.two { grid-template-columns: 1fr 1fr; gap: 14px; }
+.sim-row label {
+  font-family: "Montserrat", system-ui, sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.sim-row .req { color: var(--copper); }
+.sim-request input[type="text"],
+.sim-request input[type="email"],
+.sim-request input[type="tel"] {
+  width: 100%;
+  padding: 13px 15px;
+  border-radius: 13px;
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, .04);
+  color: var(--cream);
+  font-family: "Montserrat", system-ui, sans-serif;
+  font-size: 15px;
+}
+.sim-request input:focus-visible { outline: none; border-color: var(--copper); }
+
+.sim-privacy {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  color: var(--cream-soft);
+  font-size: 13.5px;
+  line-height: 1.5;
+}
+.sim-privacy input { margin-top: 3px; accent-color: var(--copper); }
+.sim-privacy a { color: var(--copper); text-decoration: underline; }
+
+.sim-submit {
+  justify-self: start;
+  margin-top: 4px;
+}
+.sim-submit:disabled { opacity: .5; cursor: not-allowed; }
+
+/* --- Modal de confirmación --- */
+.sim-modal {
+  position: fixed; inset: 0; z-index: 1400;
+  display: grid; place-items: center;
+  padding: 24px;
+  background: rgba(8, 8, 7, .9);
+  backdrop-filter: blur(6px);
+}
+.sim-modal[hidden] { display: none; }
+.sim-modal__card {
+  max-width: 440px;
+  padding: 34px;
+  border-radius: 22px;
+  border: 1px solid var(--line);
+  background: var(--carbon, #151311);
+  text-align: center;
+}
+.sim-modal__card .modal-kicker {
+  font-family: "Montserrat", system-ui, sans-serif;
+  font-size: 11px; font-weight: 800;
+  letter-spacing: 2px; text-transform: uppercase;
+  color: var(--copper);
+}
+.sim-modal__card h2 {
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 30px; color: var(--cream);
+  margin: 8px 0 12px;
+}
+.sim-modal__card p { color: var(--cream-soft); font-size: 15px; line-height: 1.6; margin-bottom: 22px; }
+
+/* --- Responsive --- */
+@media (max-width: 900px) {
+  .sim-layout { grid-template-columns: 1fr; gap: 30px; }
+  .sim-stage { position: static; }
+}
+@media (max-width: 480px) {
+  .sim-row.two { grid-template-columns: 1fr; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dropzone { transition: none; }
+}
