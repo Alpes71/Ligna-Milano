@@ -1,46 +1,57 @@
-LIGNA MILANO - "Disena tu pieza" (rediseno del simulador)
-=========================================================
+LIGNA MILANO - Formulario de pedido multiidioma (pedido.html)
+=============================================================
 
-QUE CAMBIA respecto a la version anterior
-  - Se ELIMINA la simulacion automatica en el navegador (no gustaba el acabado).
-  - Ahora el cliente sube su foto y la ve TAL CUAL. El efecto lo aplicais
-    vosotros y le enviais el resultado real con el presupuesto.
-  - Desplegables ARREGLADOS: las opciones ya se leen (texto marfil sobre
-    fondo grafito; grupos en cobre).
-  - Lista de efectos reorganizada por familias (55 opciones + "Otro"),
-    sin nombres de marca. El efecto es OPCIONAL.
-  - NUEVO campo de instrucciones libres, hasta 2000 caracteres, OPCIONAL,
-    con contador. Se adjunta al correo.
-  - Limite de imagen SUBIDO a 10 MB.
-  - El correo ahora lleva 1 adjunto (la foto del cliente) + todos los datos
-    + las instrucciones.
+QUE ES
+  Pagina suelta (NO enlazada en el home) para enviar por WhatsApp tras cada
+  compra. El cliente:
+  1. Llega a una landing elegante y elige idioma (8: Castellano, Catala,
+     Valencia, Euskera, Galego, English, Francais, Deutsch) con su bandera.
+  2. Rellena el formulario en su idioma: datos, direccion completa, contacto,
+     metodo de pago (Bizum/Transferencia), referencia de producto, comprobante
+     (opcional) y comentarios.
+  3. Al enviar:
+     - A info@ (desde webform@) llega el correo "Informacion de envio y pago"
+       SIEMPRE EN CASTELLANO, con todos los datos + el comprobante adjunto.
+     - Al cliente le llega un acuse "Comprobante de formulario de pedido" EN SU
+       IDIOMA, con encabezado de "no responder, buzon no monitorizado".
 
-ARCHIVOS (sustituyen a los de la entrega anterior)
-  simulador.html                pagina rediseñada
-  assets/css/simulador.css      desplegables legibles + preview + textarea
-  assets/js/simulador.js        reescrito, sin canvas ni filtros
-  send-simulador.php            1 adjunto, campo notas, limite 10 MB
-  smtp-mailer.php               igual que la version que ya subiste (incluido
-                                por completitud; puedes no volver a subirlo)
+ARCHIVOS
+  pedido.html                      la pagina (landing + formulario)
+  assets/css/pedido.css            estilos (paleta oficial v2.1)
+  assets/js/pedido.js              logica: idioma, validacion, envio
+  assets/js/pedido-i18n.js         textos en los 8 idiomas
+  assets/js/pedido-flags.js        banderas SVG (incluidas las autonomicas)
+  send-pedido.php                  endpoint: doble correo + comprobante
 
-  El nombre del enlace en el menu pasa a "Disena tu pieza". Si ya tenias
-  "Simulador" en el menu de index.html, cambialo o deja el que prefieras;
-  el archivo sigue llamandose simulador.html y NO hay que renombrarlo.
+  NO incluyo smtp-mailer.php: ya tienes la version buena en el servidor y
+  este PHP la reutiliza tal cual (ligna_send_email + _with_attachments).
 
 PASOS
 -----
 1. Descomprime sobre la carpeta del repositorio, respetando rutas
 2. git add -A
-3. git commit -m "Rediseno simulador: sin previsualizacion, efecto por encargo"
+3. git commit -m "Formulario de pedido multiidioma (pedido.html)"
 4. git push
 5. Sube a IONOS:
-     - simulador.html
-     - assets/css/simulador.css
-     - assets/js/simulador.js
-     - send-simulador.php
-   (smtp-mailer.php solo si no lo subiste antes)
+     - pedido.html
+     - assets/css/pedido.css
+     - assets/js/pedido.js
+     - assets/js/pedido-i18n.js
+     - assets/js/pedido-flags.js
+     - send-pedido.php
+
+EL ENLACE PARA WHATSAPP
+  https://lignamilano.com/pedido.html
+  (la pagina lleva noindex, no la encontraran en Google)
 
 PRUEBA EN IONOS
-  Igual que antes: sube una foto, rellena datos, envia, y confirma que llega
-  el correo a info@ con la foto adjunta, el efecto elegido y las instrucciones.
-  Como ya funciono la vez pasada, deberia ir directo.
+  Abre el enlace, elige un idioma, rellena y envia. Confirma:
+   1) que te llega a info@ el correo EN CASTELLANO con el comprobante adjunto
+   2) que a la direccion del cliente llega el acuse EN EL IDIOMA elegido
+  Para la prueba usa un email tuyo distinto como "cliente" y miras que llega.
+
+NOTAS
+  - Comprobante: acepta PNG, JPG y PDF, maximo 10 MB, OPCIONAL.
+  - El aviso de envio (72h + Correos) y el de revisar spam salen en el form.
+  - El euskera esta pendiente de que lo revise un nativo (como acordamos).
+  - Respaldo local de cada pedido en storage/pedidos/.

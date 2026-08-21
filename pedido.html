@@ -1,0 +1,216 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Información de envío y pago | Ligna Milano</title>
+  <meta name="description" content="Formulario de información de envío y pago para tu pedido de Ligna Milano.">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#080807">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="assets/img/favicon-192.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/pedido.css?v=1">
+</head>
+<body>
+
+  <!-- ============ LANDING · SELECTOR DE IDIOMA ============ -->
+  <div class="lang-landing" data-landing>
+    <img src="assets/img/logo-ligna-milano.png" alt="Ligna Milano" class="lang-logo">
+    <h1>Ligna Milano</h1>
+    <p class="lang-sub">Elige tu idioma · Choose your language</p>
+    <div class="lang-grid" data-lang-grid></div>
+  </div>
+
+  <!-- ============ FORMULARIO ============ -->
+  <div class="pedido-form-wrap" data-form-wrap>
+    <div class="pedido-container">
+
+      <div class="pedido-head">
+        <img src="assets/img/logo-ligna-milano.png" alt="Ligna Milano">
+        <h1 data-t="heading">Información de envío y pago</h1>
+      </div>
+      <p class="pedido-intro" data-t="intro"></p>
+      <button type="button" class="change-lang" data-change-lang>
+        <span aria-hidden="true">‹</span> <span data-t="changeLang">Cambiar idioma</span>
+      </button>
+
+      <div class="spam-note" data-t="spamNote"></div>
+      <div class="spam-note" data-t="shippingNote" style="border-color:var(--line);background:rgba(184,115,51,.06)"></div>
+
+      <form data-pedido-form action="send-pedido.php" method="POST" novalidate>
+        <input type="text" name="_lm_website" tabindex="-1" autocomplete="new-password" aria-hidden="true" style="position:absolute;left:-9999px;opacity:0">
+        <input type="hidden" name="idioma" value="es">
+        <input type="hidden" name="idiomaLabel" value="">
+
+        <!-- Datos personales -->
+        <fieldset>
+          <legend data-t="secName">Datos personales</legend>
+          <div class="field-grid grid-3">
+            <div class="field">
+              <label data-t-req="firstName"></label>
+              <input type="text" name="nombre" required maxlength="80" autocomplete="given-name">
+            </div>
+            <div class="field">
+              <label data-t-req="lastName1"></label>
+              <input type="text" name="apellido1" required maxlength="80" autocomplete="family-name">
+            </div>
+            <div class="field">
+              <label data-t-opt="lastName2"></label>
+              <input type="text" name="apellido2" maxlength="80">
+            </div>
+          </div>
+        </fieldset>
+
+        <!-- Dirección -->
+        <fieldset>
+          <legend data-t="secAddress">Dirección</legend>
+          <div class="field-grid grid-311">
+            <div class="field">
+              <label data-t-req="streetType"></label>
+              <select name="tipoVia" data-street-type required></select>
+            </div>
+            <div class="field" style="grid-column:span 1">
+              <label data-t-req="streetName"></label>
+              <input type="text" name="nombreVia" required maxlength="120" autocomplete="address-line1">
+            </div>
+            <div class="field">
+              <label data-t-req="number"></label>
+              <input type="text" name="numero" required maxlength="10">
+            </div>
+          </div>
+          <div class="field-grid grid-3" style="margin-top:16px">
+            <div class="field">
+              <label data-t-opt="stair"></label>
+              <input type="text" name="escalera" maxlength="10">
+            </div>
+            <div class="field">
+              <label data-t-req="floor"></label>
+              <input type="text" name="piso" required maxlength="10">
+            </div>
+            <div class="field">
+              <label data-t-req="door"></label>
+              <input type="text" name="puerta" required maxlength="10">
+            </div>
+          </div>
+          <div class="field-grid grid-2" style="margin-top:16px">
+            <div class="field">
+              <label data-t-req="city"></label>
+              <input type="text" name="ciudad" required maxlength="80" autocomplete="address-level2">
+            </div>
+            <div class="field">
+              <label data-t-req="postalCode"></label>
+              <input type="text" name="cp" required maxlength="12" autocomplete="postal-code">
+            </div>
+          </div>
+          <div class="field-grid grid-2" style="margin-top:16px">
+            <div class="field">
+              <label data-t-req="province"></label>
+              <input type="text" name="provincia" required maxlength="80" autocomplete="address-level1">
+            </div>
+            <div class="field">
+              <label data-t-req="country"></label>
+              <input type="text" name="pais" required maxlength="60" value="España" autocomplete="country-name">
+            </div>
+          </div>
+        </fieldset>
+
+        <!-- Contacto -->
+        <fieldset>
+          <legend data-t="secContact">Contacto</legend>
+          <div class="field-grid grid-2">
+            <div class="field">
+              <label data-t-req="email"></label>
+              <input type="email" name="email" required maxlength="180" autocomplete="email">
+            </div>
+            <div class="field">
+              <label data-t-req="mobile"></label>
+              <input type="tel" name="movil" required maxlength="40" autocomplete="tel">
+            </div>
+          </div>
+        </fieldset>
+
+        <!-- Pago -->
+        <fieldset>
+          <legend data-t="secPayment">Método de pago</legend>
+          <div class="field-grid grid-2">
+            <div class="field">
+              <label data-t-req="paymentMethod"></label>
+              <select name="pago" data-payment required></select>
+            </div>
+            <div class="field">
+              <label data-t-req="productRef"></label>
+              <input type="text" name="referencia" required maxlength="80">
+              <span class="hint" data-t="productRefHint"></span>
+            </div>
+          </div>
+          <div class="pay-ref-note">
+            <span aria-hidden="true">ⓘ</span>
+            <span data-t="paymentRefInfo"></span>
+          </div>
+
+          <div class="field" style="margin-top:18px">
+            <label data-t-opt="receipt"></label>
+            <div class="receipt-drop" data-receipt-drop tabindex="0" role="button">
+              <span class="receipt-drop__btn">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 16V4M6 10l6-6 6 6M4 20h16"/></svg>
+                <span data-t="receiptChoose">Adjuntar comprobante</span>
+              </span>
+              <input type="file" accept="image/png,image/jpeg,application/pdf" data-receipt-input hidden>
+              <div class="receipt-name" data-receipt-name></div>
+            </div>
+            <span class="hint" data-t="receiptHint" style="margin-top:8px"></span>
+          </div>
+        </fieldset>
+
+        <!-- Comentarios -->
+        <fieldset>
+          <legend data-t="secComments">Comentarios</legend>
+          <div class="field">
+            <label data-t-opt="comments"></label>
+            <textarea name="comentarios" maxlength="800" rows="3"></textarea>
+            <span class="hint" data-t="commentsHint"></span>
+          </div>
+        </fieldset>
+
+        <label class="privacy-check">
+          <input type="checkbox" name="privacyAccepted" value="1" required>
+          <span data-privacy></span>
+        </label>
+
+        <button type="submit" class="btn btn-primary" data-pedido-submit data-t="submit" style="margin-top:8px">Enviar información del pedido</button>
+        <p class="pedido-status" data-pedido-status aria-live="polite"></p>
+      </form>
+    </div>
+
+    <!-- Pie -->
+    <footer class="pedido-footer">
+      <div class="pedido-container">
+        <div class="foot-contacts">
+          <span>Instagram: <a href="https://instagram.com/lignamilano" target="_blank" rel="noopener">@lignamilano</a></span>
+          <span>WhatsApp: <a href="https://wa.me/34615304350" target="_blank" rel="noopener">@Lignamilano · +34 615 30 43 50</a></span>
+          <span>Email: <a href="mailto:info@lignamilano.com">info@lignamilano.com</a></span>
+        </div>
+        <div class="foot-hours" data-t="hours"></div>
+        <div class="foot-hours">Ligna Milano&trade; · © <span data-year></span></div>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Modal de éxito -->
+  <div class="pedido-modal" data-pedido-modal hidden role="dialog" aria-modal="true">
+    <div class="pedido-modal__card">
+      <span class="kicker">Ligna Milano</span>
+      <h2 data-t="okTitle">Información enviada</h2>
+      <p data-t="okBody"></p>
+      <button type="button" class="btn btn-primary" data-pedido-modal-close data-t="okClose">Perfecto</button>
+    </div>
+  </div>
+
+  <script src="assets/js/pedido-i18n.js?v=1"></script>
+  <script src="assets/js/pedido-flags.js?v=1"></script>
+  <script src="assets/js/pedido.js?v=1"></script>
+</body>
+</html>
