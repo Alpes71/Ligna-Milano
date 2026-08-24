@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Encuesta | Ligna Milano</title>
+  <meta name="description" content="Encuesta de satisfacción de Ligna Milano.">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#080807">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="assets/img/favicon-192.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/survey.css?v=1">
+</head>
+<body>
+
+  <!-- ============ LANDING · SELECTOR DE IDIOMA ============ -->
+  <div class="lang-landing" data-landing>
+    <img src="assets/img/logo-ligna-milano.png" alt="Ligna Milano" class="lang-logo">
+    <h1>Ligna Milano</h1>
+    <p class="lang-sub">Elige tu idioma · Choose your language</p>
+    <div class="lang-grid" data-lang-grid></div>
+  </div>
+
+  <!-- ============ ENCUESTA ============ -->
+  <div class="survey-form-wrap" data-form-wrap>
+    <div class="survey-container">
+
+      <div class="survey-head">
+        <img src="assets/img/logo-ligna-milano.png" alt="Ligna Milano">
+        <h1 data-t="heading">Tu opinión nos ayuda a mejorar</h1>
+      </div>
+      <p class="survey-intro" data-t="intro"></p>
+      <button type="button" class="change-lang" data-change-lang>
+        <span aria-hidden="true">‹</span> <span data-t="changeLang">Cambiar idioma</span>
+      </button>
+
+      <form data-survey-form action="send-survey.php" method="POST" novalidate>
+        <input type="text" name="_lm_website" tabindex="-1" autocomplete="new-password" aria-hidden="true" style="position:absolute;left:-9999px;opacity:0">
+        <input type="hidden" name="idioma" value="es">
+
+        <!-- 1 · Cómo nos conociste -->
+        <div class="q-block">
+          <label class="q-label" data-t-opt="q1" for="q1"></label>
+          <select id="q1" class="survey-select" data-q1 name="comoConociste"></select>
+        </div>
+
+        <!-- 2 · Qué producto -->
+        <div class="q-block">
+          <label class="q-label" data-t-opt="q2" for="q2"></label>
+          <input id="q2" class="survey-input" type="text" name="producto" maxlength="120" data-t-ph="q2ph">
+        </div>
+
+        <!-- 3 · Experiencia de compra (estrellas, obligatoria) -->
+        <div class="q-block">
+          <label class="q-label" data-t-req="q3"></label>
+          <div class="stars" data-stars="exp" role="group"></div>
+          <span class="star-hint" data-star-hint></span>
+        </div>
+
+        <!-- 4 · Calidad del producto (estrellas, obligatoria) -->
+        <div class="q-block">
+          <label class="q-label" data-t-req="q4"></label>
+          <div class="stars" data-stars="calidad" role="group"></div>
+          <span class="star-hint" data-star-hint></span>
+        </div>
+
+        <!-- 5 · NPS (obligatoria) -->
+        <div class="q-block">
+          <label class="q-label" data-t-req="q5"></label>
+          <div class="nps" data-nps role="group"></div>
+          <div class="nps-scale">
+            <span data-nps-low>Nada probable</span>
+            <span data-nps-high>Muy probable</span>
+          </div>
+        </div>
+
+        <!-- 6 · Qué otro producto -->
+        <div class="q-block">
+          <label class="q-label" data-t-opt="q6" for="q6"></label>
+          <textarea id="q6" class="survey-textarea" name="sugerencia" maxlength="600" rows="3"></textarea>
+        </div>
+
+        <!-- 7 · Comentarios -->
+        <div class="q-block">
+          <label class="q-label" data-t-opt="q7" for="q7"></label>
+          <textarea id="q7" class="survey-textarea" name="comentarios" maxlength="600" rows="3"></textarea>
+        </div>
+
+        <label class="privacy-check">
+          <input type="checkbox" name="privacyAccepted" value="1" required>
+          <span data-privacy></span>
+        </label>
+
+        <button type="submit" class="btn btn-primary" data-survey-submit data-t="submit" style="margin-top:8px">Enviar encuesta</button>
+        <p class="survey-status" data-survey-status aria-live="polite"></p>
+      </form>
+    </div>
+
+    <footer class="survey-footer">
+      <div class="survey-container">
+        <div class="foot-contacts">
+          <span>Instagram: <a href="https://instagram.com/lignamilano" target="_blank" rel="noopener">@lignamilano</a></span>
+          <span>WhatsApp: <a href="https://wa.me/34615304350" target="_blank" rel="noopener">@Lignamilano · +34 615 30 43 50</a></span>
+          <span>Email: <a href="mailto:info@lignamilano.com">info@lignamilano.com</a></span>
+        </div>
+        <div class="foot-hours" data-t="hours"></div>
+        <div class="foot-hours">Ligna Milano&trade; · © <span data-year></span></div>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Modal éxito + Trustpilot -->
+  <div class="survey-modal" data-survey-modal hidden role="dialog" aria-modal="true">
+    <div class="survey-modal__card">
+      <span class="kicker">Ligna Milano</span>
+      <h2 data-t="okTitle">¡Gracias por tu opinión!</h2>
+      <p data-t="okBody"></p>
+      <div class="survey-modal__tp">
+        <p data-t="trustpilotCta"></p>
+        <a class="tp-btn" data-tp-btn href="#" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <span data-t="trustpilotBtn">Dejar reseña en Trustpilot</span>
+        </a>
+      </div>
+      <button type="button" class="modal-close" data-survey-modal-close data-t="okClose">Cerrar</button>
+    </div>
+  </div>
+
+  <script src="assets/js/survey-i18n.js?v=1"></script>
+  <script src="assets/js/pedido-flags.js?v=1"></script>
+  <script src="assets/js/survey.js?v=1"></script>
+</body>
+</html>

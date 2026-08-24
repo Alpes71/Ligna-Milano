@@ -1,0 +1,175 @@
+/* ============================================
+   Ligna Milano — Encuesta de satisfacción
+   Paleta oficial · Manual de Marca v2.1
+   ============================================ */
+
+:root {
+  --black: #080807; --black-soft: #0d0b09; --carbon: #151311;
+  --copper: #b87333; --copper-dark: #8a5a2e;
+  --cream: #f7f0e6; --cream-soft: #e7d8c4; --muted: #9b8874;
+  --line: rgba(184, 115, 51, .26); --line-soft: rgba(247, 240, 230, .12);
+  --container: 760px;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: radial-gradient(130% 90% at 50% -10%, #1a1512 0%, #0d0b09 55%, #080807 100%);
+  color: var(--cream);
+  font-family: "Montserrat", system-ui, sans-serif;
+  min-height: 100vh;
+  display: flex; flex-direction: column;
+}
+.survey-container { width: min(var(--container), calc(100% - 40px)); margin: 0 auto; }
+
+/* ============ LANDING (idéntica a pedido) ============ */
+.lang-landing {
+  flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center;
+  padding: 60px 20px; text-align: center;
+  opacity: 0; animation: landing-in .9s cubic-bezier(.2,.7,.2,1) forwards;
+}
+.lang-landing.is-leaving { animation: landing-out .5s ease forwards; }
+@keyframes landing-in { from{opacity:0;transform:translateY(16px)} to{opacity:1;transform:translateY(0)} }
+@keyframes landing-out { from{opacity:1;transform:translateY(0)} to{opacity:0;transform:translateY(-16px)} }
+.lang-logo { width: 88px; height: 88px; margin-bottom: 26px; opacity: 0; animation: fade-up .8s ease .15s forwards; }
+.lang-landing h1 {
+  font-family: "Cormorant Garamond", Georgia, serif; font-weight: 600;
+  font-size: clamp(30px, 5vw, 46px); line-height: 1.1; margin: 0 0 10px; color: var(--cream);
+  opacity: 0; animation: fade-up .8s ease .28s forwards;
+}
+.lang-landing .lang-sub {
+  color: var(--cream-soft); font-size: 15px; letter-spacing: 2px; text-transform: uppercase;
+  margin: 0 0 44px; opacity: 0; animation: fade-up .8s ease .4s forwards;
+}
+@keyframes fade-up { from{opacity:0;transform:translateY(12px)} to{opacity:1;transform:translateY(0)} }
+.lang-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; width: 100%; max-width: 680px; }
+.lang-btn {
+  display: flex; flex-direction: column; align-items: center; gap: 10px;
+  padding: 22px 12px; border: 1px solid var(--line-soft); border-radius: 18px;
+  background: rgba(255,255,255,.03); color: var(--cream);
+  font-family: "Montserrat", system-ui, sans-serif; font-size: 14px; font-weight: 600; letter-spacing: .5px;
+  cursor: pointer; transition: transform .25s, border-color .25s, background .25s, box-shadow .25s;
+  opacity: 0; animation: fade-up .6s ease forwards;
+}
+.lang-btn:hover, .lang-btn:focus-visible {
+  transform: translateY(-4px); border-color: var(--copper);
+  background: rgba(184,115,51,.1); box-shadow: 0 16px 40px rgba(0,0,0,.5); outline: none;
+}
+.lang-btn .flag svg { display: block; width: 40px; height: 27px; border-radius: 3px; filter: drop-shadow(0 3px 6px rgba(0,0,0,.4)); }
+.lang-grid .lang-btn:nth-child(1){animation-delay:.50s}
+.lang-grid .lang-btn:nth-child(2){animation-delay:.56s}
+.lang-grid .lang-btn:nth-child(3){animation-delay:.62s}
+.lang-grid .lang-btn:nth-child(4){animation-delay:.68s}
+.lang-grid .lang-btn:nth-child(5){animation-delay:.74s}
+.lang-grid .lang-btn:nth-child(6){animation-delay:.80s}
+.lang-grid .lang-btn:nth-child(7){animation-delay:.86s}
+.lang-grid .lang-btn:nth-child(8){animation-delay:.92s}
+
+/* ============ FORMULARIO ============ */
+.survey-form-wrap { display: none; flex: 1; padding: 40px 0 20px; animation: form-in .6s ease forwards; }
+.survey-form-wrap.is-active { display: block; }
+@keyframes form-in { from{opacity:0;transform:translateY(14px)} to{opacity:1;transform:translateY(0)} }
+
+.survey-head { display: flex; align-items: center; gap: 18px; margin-bottom: 8px; }
+.survey-head img { width: 54px; height: 54px; }
+.survey-head h1 { font-family: "Cormorant Garamond", Georgia, serif; font-weight: 600; font-size: clamp(24px,4vw,34px); margin: 0; color: var(--cream); }
+.survey-intro { color: var(--cream-soft); font-size: 15.5px; line-height: 1.6; margin: 4px 0 6px; }
+.change-lang {
+  display: inline-flex; align-items: center; gap: 7px; margin: 8px 0 26px; padding: 7px 14px;
+  border: 1px solid var(--line-soft); border-radius: 999px; background: none; color: var(--muted);
+  font-family: "Montserrat", system-ui, sans-serif; font-size: 12px; letter-spacing: .5px; cursor: pointer; transition: .2s;
+}
+.change-lang:hover { border-color: var(--copper); color: var(--cream); }
+
+.q-block { padding: 22px 0; border-top: 1px solid var(--line-soft); }
+.q-block:first-of-type { border-top: none; }
+.q-label { display: block; font-size: 15px; font-weight: 600; color: var(--cream); margin-bottom: 12px; line-height: 1.4; }
+.q-label .req { color: var(--copper); }
+.q-label .opt { color: var(--muted); font-weight: 400; font-size: 13px; }
+
+.survey-input, .survey-select, .survey-textarea {
+  width: 100%; padding: 12px 14px; border-radius: 12px; border: 1px solid var(--line);
+  background: rgba(255,255,255,.04); color: var(--cream);
+  font-family: "Montserrat", system-ui, sans-serif; font-size: 15px;
+}
+.survey-select { appearance: none; cursor: pointer;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23b87333' stroke-width='2' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat; background-position: right 14px center; padding-right: 38px;
+}
+.survey-select option { background: #151311; color: #f7f0e6; }
+.survey-input:focus-visible, .survey-select:focus-visible, .survey-textarea:focus-visible { outline: none; border-color: var(--copper); }
+.survey-textarea { resize: vertical; min-height: 84px; line-height: 1.5; }
+
+/* --- Estrellas --- */
+.stars { display: inline-flex; gap: 6px; }
+.stars button {
+  background: none; border: none; padding: 2px; cursor: pointer; line-height: 0;
+  color: var(--line); transition: transform .12s ease, color .12s ease;
+}
+.stars button svg { width: 34px; height: 34px; display: block; }
+.stars button:hover { transform: scale(1.12); }
+.stars button.is-on { color: var(--copper); }
+.stars button.is-on svg { fill: var(--copper); }
+.star-hint { display: block; margin-top: 8px; font-size: 12px; color: var(--muted); }
+
+/* --- NPS 0-10 --- */
+.nps { display: grid; grid-template-columns: repeat(11, 1fr); gap: 6px; }
+.nps button {
+  aspect-ratio: 1; border: 1px solid var(--line); border-radius: 10px;
+  background: rgba(255,255,255,.03); color: var(--cream-soft);
+  font-family: "Montserrat", system-ui, sans-serif; font-size: 15px; font-weight: 600; cursor: pointer;
+  transition: .15s ease;
+}
+.nps button:hover { border-color: var(--copper); transform: translateY(-2px); }
+.nps button.is-on { background: var(--copper); color: #120904; border-color: var(--copper); }
+.nps-scale { display: flex; justify-content: space-between; margin-top: 8px; font-size: 12px; color: var(--muted); }
+
+.privacy-check { display: flex; align-items: flex-start; gap: 10px; color: var(--cream-soft); font-size: 13.5px; line-height: 1.5; margin: 24px 0 6px; }
+.privacy-check input { margin-top: 3px; accent-color: var(--copper); }
+.privacy-check a { color: var(--copper); text-decoration: underline; }
+
+.btn { font-family: "Montserrat", system-ui, sans-serif; font-weight: 700; letter-spacing: .5px; border-radius: 999px; cursor: pointer; transition: .2s; border: 1px solid var(--copper); padding: 14px 28px; font-size: 15px; }
+.btn-primary { background: var(--copper); color: #120904; }
+.btn-primary:hover { filter: brightness(1.08); transform: translateY(-1px); }
+.btn-primary:disabled { opacity: .5; cursor: not-allowed; transform: none; filter: none; }
+.btn-ghost { background: none; color: var(--cream); }
+.btn-ghost:hover { background: rgba(184,115,51,.12); }
+
+.survey-status { min-height: 20px; margin-top: 12px; font-size: 13.5px; color: var(--muted); }
+.survey-status.is-error { color: #e08a5a; }
+
+.survey-footer { border-top: 1px solid var(--line-soft); padding: 28px 0 34px; margin-top: 40px; color: var(--cream-soft); font-size: 13.5px; line-height: 1.7; }
+.survey-footer .survey-container { display: grid; gap: 6px; }
+.survey-footer a { color: var(--copper); text-decoration: none; }
+.survey-footer a:hover { text-decoration: underline; }
+.survey-footer .foot-contacts { display: flex; flex-wrap: wrap; gap: 6px 20px; }
+.survey-footer .foot-hours { color: var(--muted); font-size: 12.5px; margin-top: 4px; }
+
+/* Modal éxito + Trustpilot */
+.survey-modal { position: fixed; inset: 0; z-index: 1400; display: grid; place-items: center; padding: 24px; background: rgba(8,8,7,.9); backdrop-filter: blur(6px); }
+.survey-modal[hidden] { display: none; }
+.survey-modal__card { max-width: 460px; padding: 34px; border-radius: 22px; border: 1px solid var(--line); background: var(--carbon); text-align: center; }
+.survey-modal__card .kicker { font-size: 11px; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; color: var(--copper); }
+.survey-modal__card h2 { font-family: "Cormorant Garamond", Georgia, serif; font-size: 30px; color: var(--cream); margin: 8px 0 12px; }
+.survey-modal__card p { color: var(--cream-soft); font-size: 15px; line-height: 1.6; margin-bottom: 18px; }
+.survey-modal__tp { border-top: 1px solid var(--line-soft); padding-top: 20px; margin-top: 4px; }
+.survey-modal__tp p { font-size: 14px; margin-bottom: 14px; }
+.tp-btn {
+  display: inline-flex; align-items: center; gap: 9px; padding: 12px 22px; border-radius: 999px;
+  background: #00b67a; color: #fff; font-weight: 700; font-size: 14px; text-decoration: none; transition: .2s;
+}
+.tp-btn:hover { filter: brightness(1.06); transform: translateY(-1px); }
+.tp-btn svg { width: 18px; height: 18px; }
+.modal-close { display: block; margin: 16px auto 0; background: none; border: none; color: var(--muted); font-size: 13px; cursor: pointer; text-decoration: underline; }
+
+@media (max-width: 720px) {
+  .lang-grid { grid-template-columns: repeat(2, 1fr); }
+  .nps button { font-size: 13px; }
+}
+@media (max-width: 420px) {
+  .lang-grid { grid-template-columns: 1fr; }
+  .nps { grid-template-columns: repeat(6, 1fr); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .lang-landing, .lang-logo, .lang-landing h1, .lang-landing .lang-sub, .lang-btn, .survey-form-wrap { animation: none; opacity: 1; }
+}
