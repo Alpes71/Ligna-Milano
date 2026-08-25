@@ -1,71 +1,43 @@
-LIGNA MILANO - Encuesta de satisfaccion (survey.html)
-=====================================================
+LIGNA MILANO - Dos ajustes finos
+================================
 
-QUE ES
-  Pagina suelta multiidioma (NO enlazada en el home) para enviar por correo
-  tras la compra. El cliente elige idioma y responde 7 preguntas:
-   1. Como nos conociste (desplegable)      · opcional
-   2. Que producto compraste (texto)        · opcional
-   3. Experiencia de compra (estrellas 1-5) · OBLIGATORIA
-   4. Calidad del producto (estrellas 1-5)  · OBLIGATORIA
-   5. Recomendacion NPS (0-10)              · OBLIGATORIA
-   6. Que otro producto te gustaria (texto) · opcional
-   7. Comentarios (texto)                   · opcional
-  Al terminar, un modal le agradece y le ofrece (opcional) dejar resena en
-  Trustpilot.
+1) COLOR DE ERROR DEL MODAL (fuera de paleta -> corregido)
+   assets/css/styles.css
+   El "kicker" del modal de error pasa de #ffb38f (melocoton, fuera de
+   paleta) a #e08a5a, el mismo cobre-salmon que ya usan los mensajes de
+   error de los formularios. Ahora todos los errores del sitio combinan.
 
-QUE PASA AL ENVIAR
-  1. La respuesta se ACUMULA en un CSV en el servidor:
-       storage/encuestas/encuestas.csv
-     (separador ; y BOM UTF-8: se abre directo en Excel con acentos y columnas)
-  2. Ademas te llega a info@ (desde webform@) un correo con la respuesta y esa
-     misma fila adjunta en CSV, como copia de seguridad.
+2) FONDO DE LAS FOTOS DE PRODUCTO (blanco -> blanco roto calido)
+   assets/css/galeria.css
+   El plinto de las fotos y el fondo del visor pasan de #ffffff a #fdfbf8,
+   un blanco roto muy sutil: calienta la galeria sin crear "costura" con el
+   fondo blanco de tus fotos (por eso no vamos a marfil pleno, que si la
+   crearia). No hace falta reprocesar ninguna foto.
 
-COMO DESCARGAR TODAS LAS ENCUESTAS JUNTAS
-  Entra en:  https://lignamilano.com/descargar-encuestas.php
-  Te pide una contrasena y te descarga el CSV con TODAS las respuestas.
-  La contrasena es la que definiste. En el archivo NO esta en texto plano:
-  solo guardo un "hash" (huella irreversible), asi que aunque el codigo este
-  en GitHub, nadie puede sacar tu contrasena de ahi.
-
-ARCHIVOS
-  survey.html                     la pagina (landing + encuesta)
-  assets/css/survey.css           estilos (paleta oficial v2.1)
-  assets/js/survey.js             logica: idioma, estrellas, NPS, envio
-  assets/js/survey-i18n.js        textos en los 8 idiomas
-  send-survey.php                 endpoint: CSV acumulado + correo a info@
-  descargar-encuestas.php         descarga protegida por contrasena
-
-  IMPORTANTE: la encuesta REUTILIZA el archivo de banderas del formulario de
-  pedido (assets/js/pedido-flags.js), que YA esta en el servidor. No hace falta
-  volver a subirlo. Si por lo que sea no estuviera, avisame y te lo paso.
+3) TEXTO DE ENVIO DEL FORMULARIO DE PEDIDO (nuevo, en 8 idiomas)
+   assets/js/pedido-i18n.js   (lo que ve el cliente en el formulario)
+   send-pedido.php            (el acuse que le llega por correo)
+   Nuevo texto:
+   "Sobre el envio. Una vez confirmemos tu pago y hayas aprobado el diseno,
+    tu pedido pasa a produccion y se envia en un plazo de 72 horas."
+   Se quito la mencion al correo de Correos con seguimiento (ahora lo
+   gestiona tu app). Cambiado en los 8 idiomas, en el formulario y en el
+   acuse por correo.
 
 PASOS
 -----
 1. Descomprime sobre la carpeta del repositorio, respetando rutas
 2. git add -A
-3. git commit -m "Encuesta de satisfaccion multiidioma (survey.html)"
+3. git commit -m "Ajustes: color de error, fondo de galeria y texto de envio"
 4. git push
 5. Sube a IONOS:
-     - survey.html
-     - assets/css/survey.css
-     - assets/js/survey.js
-     - assets/js/survey-i18n.js
-     - send-survey.php
-     - descargar-encuestas.php
+     - assets/css/styles.css
+     - assets/css/galeria.css
+     - assets/js/pedido-i18n.js
+     - send-pedido.php
+6. Tras subir el CSS, Ctrl+F5 en la web para ver los cambios (cache).
 
-EL ENLACE PARA EL CORREO A CLIENTES
-  https://lignamilano.com/survey.html   (lleva noindex, no sale en Google)
-
-PRUEBA EN IONOS
-  1. Abre survey.html, elige idioma, responde y envia.
-  2. Confirma que te llega a info@ el correo con el CSV adjunto.
-  3. Entra en descargar-encuestas.php, pon tu contrasena y baja el CSV.
-     Abre el CSV en Excel: cada respuesta es una fila.
-
-NOTAS
-  - Obligatorias solo las 3 valoraciones (estrellas x2 + NPS), como pediste.
-  - El euskera esta pendiente de revision por un nativo, como acordamos.
-  - El boton de Trustpilot lleva a: es.trustpilot.com/evaluate/lignamilano.com
-  - La carpeta storage/encuestas/ se autoprotege con un .htaccess para que
-    nadie acceda al CSV por URL directa.
+NOTA sobre versiones de cache
+  styles.css y pedido-i18n.js se enlazan con ?v=N en las paginas. Los cambios
+  se veran igual, pero si quieres forzar que TODOS los visitantes recarguen,
+  avisame y subo el numero de version en los enlaces. Para ti basta Ctrl+F5.

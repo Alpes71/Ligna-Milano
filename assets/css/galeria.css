@@ -18,7 +18,7 @@
   aspect-ratio: 4 / 5;
   border-radius: 18px;
   overflow: hidden;
-  background: #ffffff;
+  background: #fdfbf8;
   border: 1px solid rgba(255, 255, 255, .08);
   cursor: zoom-in;
   padding: 0;
@@ -172,7 +172,7 @@
   max-width: 100%;
   max-height: 74vh;
   border-radius: 16px;
-  background: #ffffff;
+  background: #fdfbf8;
   display: block;
   margin: 0 auto;
 }
